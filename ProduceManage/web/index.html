@@ -7,33 +7,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="Login-Popup" id="myModal">
-            <div class="Log_page">
-                <div class="login-pop">
-                    <div>
-                        <!-- <i class="add"></i> -->
-                        <h1 style="text-align: center; color: #404040;">Login Account</h1>
-                        <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
-                    </div>
-                    <div class="input-text">
-                        <input type="text" name="user" placeholder="Username">
-                    </div>
-                    <div class="input-text">
-                        <input type="password" name="pass" placeholder="Password">
-                    </div>
-                    <div class="save-pass">
-                        <label class="save-pass-container">Remember password
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
+        <form name="login" action="LoginServlet" method="get">
+            <div class="Login-Popup" id="myModal">
+                <div class="Log_page">
+                    <div class="login-pop">
+                        <div>
+                            <!-- <i class="add"></i> -->
+                            <h1 style="text-align: center; color: #404040;">Login Account</h1>
+                            <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
+                        </div>
+                        <div class="input-text">
+                            <input type="text" name="user" placeholder="Username">
+                        </div>
+                        <div class="input-text">
+                            <input type="password" name="pass" placeholder="Password">
+                        </div>
+                        <div class="save-pass">
+                            <label class="save-pass-container">Remember password
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
 
-                    <!--Login button-->
-                    <button type="submit" value="Login" class="btn">Login</button>
-                    <a href="#" style="color: blue;">Forgotten password?</a>
-                </div>      
+                        <!--Login button-->
+                        <button type="submit" value="Login" class="btn">Login</button>
+                        <a href="#" style="color: blue;">Forgotten password?</a>
+                    </div>      
+                </div>
             </div>
-        </div>
+        </form>
         
         <style>
             *{
