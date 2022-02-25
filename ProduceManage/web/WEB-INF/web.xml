@@ -12,9 +12,25 @@
             <param-value>12345</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>AccountDelete</servlet-name>
+        <servlet-class>controller.AccountDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccountList</servlet-name>
+        <servlet-class>controller.AccountList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountDelete</servlet-name>
+        <url-pattern>/AccountDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccountList</servlet-name>
+        <url-pattern>/AccountList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
