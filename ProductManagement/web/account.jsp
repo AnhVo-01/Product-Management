@@ -4,9 +4,8 @@
     Author     : AnhVo-PC
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.Account"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -119,7 +118,7 @@
 
             <!-- order details list -->
             <div class="details">
-                <div class="card-box recent-orders">
+                <div class="card_box recent-orders">
                     <div class="card-header">
                         <h2>Accounts</h2>
                         <!-- <a href="#" class="btn">View All</a> -->
@@ -136,32 +135,29 @@
                     <table id="myTable">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>ID</th>
-                                <th>User Name</th>
-                                <th>Password</th>
-                                <th>Display Name</th>
-                                <th>Email</th>
-                                <th>Status</th>
+                                <td></td>
+                                <td>ID</td>
+                                <td>User Name</td>
+                                <td>Password</td>
+                                <td>Display Name</td>
+                                <td>Email</td>
+                                <td>Status</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <%
-                                ArrayList<Account> list = (ArrayList<Account>) request.getAttribute("StudentList"); 
-                                for (Account acc : list) {
-                            %>
-                            <tr>
-                                <td><a class="remove" href="#" onclick="warning(<%=acc.getId()%>)"><i class="fa-solid fa-trash-can"></i></a></td>
-                                <td><%=acc.getId()%></td>
-                                <td><%=acc.getUsername()%></td>
-                                <td><%=acc.getPassword()%></td>
-                                <td><%=acc.getDisplayname()%></td>
-                                <td><%=acc.getEmail()%></td>
-                                <td>
-                                    <span class="status_admin status"><i class="fa-solid fa-pen"></i></span>
-                                </td>
-                            </tr>
-                            <%};%>
+                            <c:forEach items="${sessionScope.AccoutList}" var="a" varStatus="loop">
+                                <tr>
+                                    <td><i class="fa-solid fa-trash-can remove"><a href="#" onclick="warning(${a.id})"></a></i></td>
+                                    <td><c:out value="${a.id}"/></td>
+                                    <td><c:out value="${a.username}"/></td>
+                                    <td><c:out value="${a.password}"/></td>
+                                    <td><c:out value="${a.displayname}"/></td>
+                                    <td><c:out value="${a.email}"/></td>
+                                    <td>
+                                        <span class="status_admin status"><i class="fa-solid fa-pen"></i></span>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

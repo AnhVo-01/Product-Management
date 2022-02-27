@@ -5,7 +5,7 @@ package model;
  * @author AnhVo-PC
  */
 public class Account {
-    int id;
+    String id;
     String username;
     String password;
     String displayname;
@@ -15,7 +15,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, String username, String password, String displayname, String email, boolean status) {
+    public Account(String id, String username, String password, String displayname, String email, boolean status) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -24,11 +24,11 @@ public class Account {
         this.status = status;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,5 +71,6 @@ public class Account {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
     
 }

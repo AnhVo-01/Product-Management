@@ -18,14 +18,10 @@ public class AccountList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AccountDAO db = new AccountDAO();
-        ArrayList<Account> students = db.getAll();
-        
-        if(students.isEmpty()){
-            request.getRequestDispatcher("create.jsp").forward(request, response);
-        }else{
-            request.setAttribute("AccoutList", students);
-            request.getRequestDispatcher("account.jsp").forward(request, response);
-        }
+        ArrayList<Account> acc = db.getAll();
+       
+        request.getSession().setAttribute("AccoutList", acc);
+        request.getRequestDispatcher("account.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
