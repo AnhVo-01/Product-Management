@@ -22,11 +22,11 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="images/logo.png">
+                        <img src="img/logo.png">
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name">TomatoTM</span>
+                        <span class="name">${sessionScope.AccoutList[0].displayname}</span>
                         <span class="profession">Time management</span>
                     </div>
                 </div>
