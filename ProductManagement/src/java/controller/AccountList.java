@@ -1,6 +1,6 @@
 package controller;
 
-import DAL.AccountDAO;
+import DAO.AccountDAO;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -17,7 +17,6 @@ public class AccountList extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         AccountDAO db = new AccountDAO();
         ArrayList<Account> students = db.getAll();
         

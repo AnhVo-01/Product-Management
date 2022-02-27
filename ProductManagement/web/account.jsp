@@ -136,12 +136,13 @@
                     <table id="myTable">
                         <thead>
                             <tr>
-                                <td></td>
-                                <td>User Name</td>
-                                <td>Password</td>
-                                <td>Display Name</td>
-                                <td>Email</td>
-                                <td>Status</td>
+                                <th></th>
+                                <th>ID</th>
+                                <th>User Name</th>
+                                <th>Password</th>
+                                <th>Display Name</th>
+                                <th>Email</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,6 +152,7 @@
                             %>
                             <tr>
                                 <td><a class="remove" href="#" onclick="warning(<%=acc.getId()%>)"><i class="fa-solid fa-trash-can"></i></a></td>
+                                <td><%=acc.getId()%></td>
                                 <td><%=acc.getUsername()%></td>
                                 <td><%=acc.getPassword()%></td>
                                 <td><%=acc.getDisplayname()%></td>

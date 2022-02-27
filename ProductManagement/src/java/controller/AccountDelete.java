@@ -1,6 +1,6 @@
 package controller;
 
-import DAL.AccountDAO;
+import DAO.AccountDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

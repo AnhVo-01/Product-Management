@@ -1,4 +1,4 @@
-package DAL;
+package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,14 +18,15 @@ public class AccountDAO extends BaseDAO<Account>{
     public ArrayList<Account> getAll() {
         ArrayList<Account> acc = new ArrayList<>();
         try {
-            String sql = "SELECT [Username], [Password], [DisplayName] FROM [UserTBL]";
+            String sql = "SELECT * FROM [Account]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Account s = new Account();
-                s.setUsername(rs.getString("Username"));
-                s.setPassword(rs.getString("Password"));
-                s.setDisplayname(rs.getString("DisplayName"));
+                s.setId(rs.getInt(1));
+                s.setUsername(rs.getString(2));
+                s.setPassword(rs.getString(3));
+                s.setDisplayname(rs.getString(4));
                 acc.add(s);
             }
         } catch (SQLException ex) {
@@ -37,7 +38,7 @@ public class AccountDAO extends BaseDAO<Account>{
     public Account Login(String username, String password) {
         try {
             String sql = "SELECT [Username], [Password], [DisplayName]\n" +
-                         "FROM [UserTBL]\n" + 
+                         "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
@@ -58,7 +59,7 @@ public class AccountDAO extends BaseDAO<Account>{
     
     public void deleteAccount(int id) {
         try {
-            String sql = "DELETE Student WHERE id=?";
+            String sql = "DELETE Account WHERE id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.executeUpdate();

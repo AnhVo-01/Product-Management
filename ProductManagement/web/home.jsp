@@ -51,7 +51,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="AccountList">
                             <span class="icon"><i class="fas fa-lock"></i></span>
                             <span class="title">Password</span>
                         </a>
