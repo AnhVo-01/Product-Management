@@ -13,7 +13,6 @@
     <title>Account Page</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/account.css">
     <script src="https://kit.fontawesome.com/a4edd5786f.js" crossorigin="anonymous"></script>
 </head>
