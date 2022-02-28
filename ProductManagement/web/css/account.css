@@ -350,13 +350,38 @@ body.dark .home .text{
     font-weight: 600;
     color: #1795ce;
 }
+.add_more:hover{
+    cursor: pointer;
+    color: #fff;
+}
 .remove:hover{
     cursor: pointer;
     color: #f00;
 }
+.status{
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
 .status:hover{
     cursor: pointer;
     color: #000;
+}
+.status_user{
+    background: #8de02c;
+    color: var(--white);
+}
+.status_mod{
+    background: #f9ca3f;
+    color: var(--white);
+}
+.status_admin{
+    background: #f00;
+    color: var(--white);
+}
+.status_add{
+    background: #1795ce; 
 }
 .details table{
     width: 100%;
@@ -388,39 +413,6 @@ body.dark .home .text{
 .details .recent-orders table tr td:nth-child(3){
     text-align: start;
     /* overflow: hidden; */
-}
-
-.status_user{
-    padding: 2px 4px;
-    background: #8de02c;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-}
-.status_mod{
-    padding: 2px 4px;
-    background: #f9ca3f;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-}
-.status_admin{
-    padding: 2px 4px;
-    background: #f00;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-}
-.status-inprogress{
-    padding: 2px 4px;
-    background: #1795ce;
-    color: var(--white);
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
 }
 
 /* responsive */

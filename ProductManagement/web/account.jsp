@@ -8,165 +8,165 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Account Page</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="css/account.css">
-        <script src="https://kit.fontawesome.com/a4edd5786f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <nav class="sidebar close">
-            <header>
-                <div class="image-text">
-                    <span class="image">
-                        <img src="img/ava.png">
-                    </span>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Account Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="https://kit.fontawesome.com/a4edd5786f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="img/ava.png">
+                </span>
 
-                    <div class="text logo-text">
-                        <span class="name">${sessionScope.AccoutList[0].displayname}</span>
-                        <span class="profession">Time management</span>
-                    </div>
+                <div class="text logo-text">
+                    <span class="name">${sessionScope.AccoutList[0].displayname}</span>
+                    <span class="profession">Time management</span>
                 </div>
-                <i class="fa-solid fa-angle-right fa-sm toggle"></i>
-            </header>
+            </div>
+            <i class="fa-solid fa-angle-right fa-sm toggle"></i>
+        </header>
 
-            <div class="menu-bar">
-                <div class="menu">
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
+                    <input type="text" placeholder="Search...">
+                </li>
 
-                    <li class="search-box">
-                        <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
-                        <input type="text" placeholder="Search...">
-                    </li>
-
-                    <ul class="menu-links">
-                        <li class="nav-link">
-                            <a href="home.jsp">
-                                <i class="fa-solid fa-house fa-lg icon"></i>
-                                <span class="text nav-text">Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="Customer">
-                                <i class="fa-solid fa-user-group fa-lg icon"></i>
-                                <span class="text nav-text">Customers</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class="fa-solid fa-bell fa-lg icon"></i>
-                                <span class="text nav-text">Notifications</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class="fa-solid fa-truck-fast fa-lg icon"></i>
-                                <span class="text nav-text">Transport</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class="fa-solid fa-warehouse fa-lg icon"></i>
-                                <span class="text nav-text">Warehouse</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-link">
-                            <a href="#">
-                                <i class="fa-solid fa-lock fa-lg icon"></i>
-                                <span class="text nav-text">Accounts</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="bottom-content">
-                    <li class="">
-                        <a href="#">
-                            <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
-                            <span class="text nav-text">Logout</span>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="home.jsp">
+                            <i class="fa-solid fa-house fa-lg icon"></i>
+                            <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="mode">
-                        <div class="sun-moon">
-                            <i class="fa-solid fa-moon fa-lg icon moon"></i>
-                            <i class="fa-solid fa-sun fa-lg icon sun"></i>
-                        </div>
-                        <span class="mode-text text">Dark mode</span>
+                    <li class="nav-link">
+                        <a href="Customer">
+                            <i class="fa-solid fa-user-group fa-lg icon"></i>
+                            <span class="text nav-text">Customers</span>
+                        </a>
+                    </li>
 
-                        <div class="toggle-switch">
-                            <span class="switch"></span>
-                        </div>
-                    </li>               
-                </div>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-bell fa-lg icon"></i>
+                            <span class="text nav-text">Notifications</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-truck-fast fa-lg icon"></i>
+                            <span class="text nav-text">Transport</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-warehouse fa-lg icon"></i>
+                            <span class="text nav-text">Warehouse</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-lock fa-lg icon"></i>
+                            <span class="text nav-text">Accounts</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
 
-        <!-- main -->
-        <div class="main">
-            <div class="home">
-                <div class="text">Accounts Management</div>
-            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
 
-            <!-- order details list -->
-            <div class="details">
-                <div class="card_box recent-orders">
-                    <div class="card-header">
-                        <h2>Accounts</h2>
-                        <!-- <a href="#" class="btn">View All</a> -->
-                        <div class="status-header">
-                            <span class="status_user">User</span>
-                            <!-- <span class="status-inprogress">In Progress</span> -->
-                            <span class="status_mod">Mod</span>
-                            <span class="status_admin">Admin</span>
-                        </div>
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class="fa-solid fa-moon fa-lg icon moon"></i>
+                        <i class="fa-solid fa-sun fa-lg icon sun"></i>
                     </div>
-                    <hr>
-                    <!-- <button onclick="myCreateFunction()">Create row</button> -->
+                    <span class="mode-text text">Dark mode</span>
 
-                    <table id="myTable">
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <td>ID</td>
-                                <td>User Name</td>
-                                <td>Password</td>
-                                <td>Display Name</td>
-                                <td>Email</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${sessionScope.AccoutList}" var="a" varStatus="loop">
-                                <tr>
-                                    <td><i class="fa-solid fa-trash-can remove"><a href="#" onclick="warning(${a.id})"></a></i></td>
-                                    <td><c:out value="${a.id}"/></td>
-                                    <td><c:out value="${a.username}"/></td>
-                                    <td><c:out value="${a.password}"/></td>
-                                    <td><c:out value="${a.displayname}"/></td>
-                                    <td><c:out value="${a.email}"/></td>
-                                    <td>
-                                        <span class="status_admin status"><i class="fa-solid fa-pen"></i></span>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="end">
-                    <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
-                </div>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>               
             </div>
         </div>
+    </nav>
+
+    <!-- main -->
+    <div class="main">
+        <div class="home">
+            <div class="text">Accounts Management</div>
+        </div>
+
+        <!-- order details list -->
+        <div class="details">
+            <div class="card-box recent-orders">
+                <div class="card-header">
+                    <h2>Accounts</h2>
+                    <div class="status status-header">
+                        <span class="status status_user">User</span>
+                        <!-- <span class="status-inprogress">In Progress</span> -->
+                        <span class="status status_mod">Mod</span>
+                        <span class="status status_admin">Admin</span>
+                    </div>
+                </div>
+                <hr>
+
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <td><span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span></td>
+                            <td>ID</td>
+                            <td>User Name</td>
+                            <td>Password</td>
+                            <td>Display Name</td>
+                            <td>Email</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach items="${sessionScope.AccoutList}" var="a" varStatus="loop">
+                            <tr>
+                                <td>
+                                    <span class="status">
+                                        <i class="fa-solid fa-trash-can remove"><a href="#" onclick="warning(${a.id})"></a></i>
+                                    </span>
+                                </td>
+                                <td><c:out value="${a.id}"/></td>
+                                <td><c:out value="${a.username}"/></td>
+                                <td><c:out value="${a.password}"/></td>
+                                <td><c:out value="${a.displayname}"/></td>
+                                <td><c:out value="${a.email}"/></td>
+                                <td>
+                                    <span class="status status_admin"><i class="fa-solid fa-pen"></i></span>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="end">
+                <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
+            </div>
+        </div>
+    </div>
 
         <script>
             function warning(id){
