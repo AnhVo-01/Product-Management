@@ -5,9 +5,9 @@
  */
 package controller;
 
-import DAO.AccountDAO;
+import DAO.CusDAO;
 import java.util.ArrayList;
-import model.Account;
+import model.Customers;
 
 /**
  *
@@ -15,11 +15,10 @@ import model.Account;
  */
 public class test {
     public static void main(String[] args) {
-        AccountDAO db = new AccountDAO();
-        ArrayList<Account> acc = db.getAll();
-        for(Account a : acc){
+        CusDAO db = new CusDAO();
+        ArrayList<Customers> acc = db.getAll();
+        for(Customers a : acc){
             System.out.println(a);
         }
-
     }
 }

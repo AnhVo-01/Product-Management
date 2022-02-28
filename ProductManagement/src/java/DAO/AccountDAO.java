@@ -18,12 +18,12 @@ public class AccountDAO extends BaseDAO<Account>{
     public ArrayList<Account> getAll() {
         ArrayList<Account> acc = new ArrayList<>();
         try {
-            String sql = "SELECT [cusID], [userName], [passWord], [displayName], [email] FROM [Account]";
+            String sql = "SELECT [userID], [userName], [passWord], [displayName], [email] FROM [Account]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Account a = new Account();
-                a.setId(rs.getString("cusID"));
+                a.setId(rs.getString("userID"));
                 a.setUsername(rs.getString("userName"));
                 a.setPassword(rs.getString("passWord"));
                 a.setDisplayname(rs.getString("displayName"));

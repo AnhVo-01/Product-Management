@@ -43,7 +43,7 @@
 
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="#">
+                            <a href="home.jsp">
                                 <i class="fa-solid fa-house fa-lg icon"></i>
                                 <span class="text nav-text">Dashboard</span>
                             </a>
@@ -65,15 +65,15 @@
 
                         <li class="nav-link">
                             <a href="#">
-                                <i class="fa-solid fa-chart-pie fa-lg icon"></i>
-                                <span class="text nav-text">Analytics</span>
+                                <i class="fa-solid fa-truck-fast fa-lg icon"></i>
+                                <span class="text nav-text">Transport</span>
                             </a>
                         </li>
 
                         <li class="nav-link">
                             <a href="#">
-                                <i class="fa-solid fa-heart fa-lg icon"></i>
-                                <span class="text nav-text">Likes</span>
+                                <i class="fa-solid fa-warehouse fa-lg icon"></i>
+                                <span class="text nav-text">Warehouse</span>
                             </a>
                         </li>
 
