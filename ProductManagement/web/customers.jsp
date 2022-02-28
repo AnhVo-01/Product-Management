@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,7 +76,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="AccountList">
                             <i class="fa-solid fa-lock fa-lg icon"></i>
                             <span class="text nav-text">Accounts</span>
                         </a>
@@ -135,18 +136,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Ngô Vũ Anh Võ</td>
-                            <td>969127592</td>
-                            <td>vonvahe151420@fpt.edu.vn</td>
-                            <td>Hải Dương</td>
-                            <td><address>xóm 4, Quách An, Thanh An, Thanh Hà</address></td>
-                            <td></td>
-                            <td>
-                                <span class="status_inprogress status"><i class="fa-solid fa-pen"></i></span>
-                                <span class="remove"><i class="fa-solid fa-trash-can"></i></span>
-                            </td>
-                        </tr>
+                        <c:forEach items="${sessionScope.CusList}" var="c" varStatus="loop">
+                            <tr>
+                                <td><c:out value="${c.name}"/></td>
+                                <td><c:out value="${c.phone}"/></td>
+                                <td><c:out value="${c.email}"/></td>
+                                <td><c:out value="${c.cusAddress.street}"/></td>
+                                <td><address><c:out value="${c.cusAddress.city}"/></address></td>
+                                <td><c:out value="${c.cusAddress.zipcode}"/></td>
+                                <td>
+                                    <span class="status_inprogress status"><i class="fa-solid fa-pen"></i></span>
+                                    <span class="remove"><i class="fa-solid fa-trash-can"></i></span>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

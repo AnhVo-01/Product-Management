@@ -50,7 +50,7 @@
                         </li>
 
                         <li class="nav-link">
-                            <a href="#">
+                            <a href="Customer">
                                 <i class="fa-solid fa-user-group fa-lg icon"></i>
                                 <span class="text nav-text">Customers</span>
                             </a>
