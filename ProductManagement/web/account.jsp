@@ -22,7 +22,7 @@
             <header>
                 <div class="image-text">
                     <span class="image">
-                        <img src="img/logo.png">
+                        <img src="img/ava.png">
                     </span>
 
                     <div class="text logo-text">
