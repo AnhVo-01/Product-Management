@@ -130,7 +130,11 @@
                 <table id="myTable">
                     <thead>
                         <tr>
-                            <td><span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span></td>
+                            <td>
+                                <span class="status status_add">
+                                    <i class="fa-solid fa-circle-plus add_more"></i>
+                                </span>
+                            </td>
                             <td>ID</td>
                             <td>User Name</td>
                             <td>Password</td>
