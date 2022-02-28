@@ -60,11 +60,11 @@ public class AccountDAO extends BaseDAO<Account>{
         return null;
     }
     
-    public void deleteAccount(int id) {
+    public void deleteAccount(String id) {
         try {
             String sql = "DELETE Account WHERE id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+            statement.setString(1, id);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);

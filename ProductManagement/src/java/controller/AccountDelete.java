@@ -18,7 +18,7 @@ public class AccountDelete extends HttpServlet {
         String id = request.getParameter("aid");
 
         AccountDAO dao = new AccountDAO();
-        dao.deleteAccount(Integer.parseInt(id));
+        dao.deleteAccount(id);
         response.sendRedirect("AccountList");
     }
 

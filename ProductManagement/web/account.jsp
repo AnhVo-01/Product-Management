@@ -148,7 +148,7 @@
                             <tr>
                                 <td>
                                     <span class="status">
-                                        <a class="remove" href="#" onclick="warning(${a.id})"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="AccountDelete?aid=${a.id}"><i class="fa-solid fa-trash-can remove"></i></a>
                                     </span>
                                 </td>
                                 <td><c:out value="${a.id}"/></td>
@@ -187,8 +187,9 @@
             if(option === true){
                 window.location.href = 'AccountDelete?aid='+id;
             }
-        }
-        
+        };
+    </script>
+    <script>
         const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
         toggle = body.querySelector(".toggle"),
@@ -201,12 +202,12 @@
         toggle.addEventListener("click" , () =>{
             sidebar.classList.toggle("close");
             main.classList.toggle('active');
-        })
+        });
 
         searchBtn.addEventListener("click" , () =>{
             sidebar.classList.toggle("close");
             main.classList.toggle('active');
-        })
+        });
 
         modeSwitch.addEventListener("click", () => {
             body.classList.toggle("dark");
