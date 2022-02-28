@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
+import model.Status;
 
 /**
  *
@@ -18,16 +19,17 @@ public class AccountDAO extends BaseDAO<Account>{
     public ArrayList<Account> getAll() {
         ArrayList<Account> acc = new ArrayList<>();
         try {
-            String sql = "SELECT [userID], [userName], [passWord], [displayName], [email] FROM [Account]";
+            String sql = "SELECT * FROM [Account]";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 Account a = new Account();
-                a.setId(rs.getString("userID"));
-                a.setUsername(rs.getString("userName"));
-                a.setPassword(rs.getString("passWord"));
-                a.setDisplayname(rs.getString("displayName"));
-                a.setEmail(rs.getString("email"));
+                a.setId(rs.getString(1));
+                a.setUsername(rs.getString(2));
+                a.setPassword(rs.getString(3));
+                a.setDisplayname(rs.getString(4));
+                a.setEmail(rs.getString(5));
+                a.setStatus(new Status(rs.getBoolean(6),rs.getBoolean(7)));
                 acc.add(a);
             }
         } catch (SQLException ex) {

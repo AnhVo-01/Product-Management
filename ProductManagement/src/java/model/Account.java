@@ -4,18 +4,19 @@ package model;
  *
  * @author AnhVo-PC
  */
+
 public class Account {
     String id;
     String username;
     String password;
     String displayname;
     String email;
-    boolean status;
+    Status status;
 
     public Account() {
     }
 
-    public Account(String id, String username, String password, String displayname, String email, boolean status) {
+    public Account(String id, String username, String password, String displayname, String email, Status status) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -64,13 +65,12 @@ public class Account {
         this.email = email;
     }
 
-    public boolean isStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
-
     
 }

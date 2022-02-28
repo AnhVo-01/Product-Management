@@ -148,7 +148,7 @@
                             <tr>
                                 <td>
                                     <span class="status">
-                                        <i class="fa-solid fa-trash-can remove"><a href="#" onclick="warning(${a.id})"></a></i>
+                                        <a class="remove" href="#" onclick="warning(${a.id})"><i class="fa-solid fa-trash-can"></i></a>
                                     </span>
                                 </td>
                                 <td><c:out value="${a.id}"/></td>
@@ -157,7 +157,17 @@
                                 <td><c:out value="${a.displayname}"/></td>
                                 <td><c:out value="${a.email}"/></td>
                                 <td>
-                                    <span class="status status_admin"><i class="fa-solid fa-pen"></i></span>
+                                    <c:choose>
+                                        <c:when test="${a.status.isAdmin == true}">
+                                            <span class="status status_admin"><i class="fa-solid fa-pen"></i></span>
+                                        </c:when>
+                                        <c:when test="${a.status.isMod == true}">
+                                            <span class="status status_mod"><i class="fa-solid fa-pen"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="status status_user"><i class="fa-solid fa-pen"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -171,43 +181,43 @@
         </div>
     </div>
 
-        <script>
-            function warning(id){
-                var option = confirm('Do you want to continue?');
-                if(option === true){
-                    window.location.href = 'StudentDelete?sid='+id;
-                }
+    <script>
+        function warning(id){
+            var option = confirm('Do you want to continue?');
+            if(option === true){
+                window.location.href = 'AccountDelete?aid='+id;
             }
+        }
         
-            const body = document.querySelector('body'),
-            sidebar = body.querySelector('nav'),
-            toggle = body.querySelector(".toggle"),
-            searchBtn = body.querySelector(".search-box"),
-            modeSwitch = body.querySelector(".toggle-switch"),
-            modeText = body.querySelector(".mode-text");
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
 
-            let main = document.querySelector('.main');
+        let main = document.querySelector('.main');
 
-            toggle.addEventListener("click" , () =>{
-                sidebar.classList.toggle("close");
-                main.classList.toggle('active');
-            })
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+            main.classList.toggle('active');
+        })
 
-            searchBtn.addEventListener("click" , () =>{
-                sidebar.classList.toggle("close");
-                main.classList.toggle('active');
-            })
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+            main.classList.toggle('active');
+        })
 
-            modeSwitch.addEventListener("click", () => {
-                body.classList.toggle("dark");
+        modeSwitch.addEventListener("click", () => {
+            body.classList.toggle("dark");
 
-                if (body.classList.contains("dark")) {
-                    modeText.innerText = "Light mode";
-                } else {
-                    modeText.innerText = "Dark mode";
+            if (body.classList.contains("dark")) {
+                modeText.innerText = "Light mode";
+            } else {
+                modeText.innerText = "Dark mode";
 
-                }
-            });
-        </script>
+            }
+        });
+    </script>
     </body>
 </html>
