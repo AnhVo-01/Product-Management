@@ -44,8 +44,9 @@ a:hover{
     background: #fff;
     width: 600px;
     height: 500px;
-    top: 100px;
-    transform: translateX(80%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .login-pop{
     position: absolute;
