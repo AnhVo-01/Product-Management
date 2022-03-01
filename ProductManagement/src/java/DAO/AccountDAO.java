@@ -62,7 +62,7 @@ public class AccountDAO extends BaseDAO<Account>{
     
     public void deleteAccount(String id) {
         try {
-            String sql = "DELETE Account WHERE id=?";
+            String sql = "DELETE Account WHERE userID=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             statement.executeUpdate();

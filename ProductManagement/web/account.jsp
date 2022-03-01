@@ -148,7 +148,7 @@
                             <tr>
                                 <td>
                                     <span class="status">
-                                        <a href="AccountDelete?aid=${a.id}"><i class="fa-solid fa-trash-can remove"></i></a>
+                                        <a style="color: #000;" href="#" onclick="warning(${a.id})"><i class="fa-solid fa-trash-can remove"></i></a>
                                     </span>
                                 </td>
                                 <td><c:out value="${a.id}"/></td>
