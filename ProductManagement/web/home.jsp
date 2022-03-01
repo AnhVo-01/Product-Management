@@ -71,7 +71,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="AccoutList">
+                        <a href="AccountList">
                             <i class="fa-solid fa-lock fa-lg icon"></i>
                             <span class="text nav-text">Accounts</span>
                         </a>
