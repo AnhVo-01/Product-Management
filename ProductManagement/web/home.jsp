@@ -105,7 +105,7 @@
      <!-- main -->
     <div class="main">
         <div class="home">
-            <div class="text">Dashboard</div>
+            <div class="text">Hello ${sessionScope.user.displayname}</div>
         </div>
 
         <!-- card -->
