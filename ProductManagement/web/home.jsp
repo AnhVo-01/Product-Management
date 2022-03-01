@@ -82,7 +82,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="LogoutServlet">
                         <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -278,36 +278,6 @@
         </div>
     </div>
         
-    <script>
-        const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-        let main = document.querySelector('.main');
-
-        toggle.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-            main.classList.toggle('active');
-        })
-
-        searchBtn.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-            main.classList.toggle('active');
-        })
-
-        modeSwitch.addEventListener("click" , () =>{
-            body.classList.toggle("dark");
-    
-            if(body.classList.contains("dark")){
-                modeText.innerText = "Light mode";
-            }else{
-                modeText.innerText = "Dark mode";
-        
-            }
-        });
-    </script>
+        <script src="js/navController.js"></script>
     </body>
 </html>

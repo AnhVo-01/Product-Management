@@ -15,20 +15,34 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <%
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie cooky : cookies) {
+                    if (cooky.getName().equals("username")) {
+                        request.setAttribute("u_name", cooky.getValue());
+                    }
+                    if (cooky.getName().equals("password")) {
+                        request.setAttribute("u_pass", cooky.getValue());
+                    }
+                }
+            }
+        %>
         <form name="login" action="LoginServlet" method="POST">
             <div class="Login-Popup" id="myModal">
                 <div class="Log_page">
                     <div class="login-pop">
                         <div>
-                            <!-- <i class="add"></i> -->
                             <h1 style="text-align: center; color: #404040;">Login Account</h1>
-                            <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
+                        </div>
+                        <div class="alert">${mess}</div>
+                        <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
+
+                        <div class="input-text">
+                            <input type="text" name="username" placeholder="Username" value="${u_name}">
                         </div>
                         <div class="input-text">
-                            <input type="text" name="username" placeholder="Username">
-                        </div>
-                        <div class="input-text">
-                            <input type="password" name="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password" value="${u_pass}">
                         </div>
                         <div class="save-pass">
                             <label class="save-pass-container">Remember password
@@ -41,7 +55,6 @@
                         <button type="submit" value="Login" class="btn">Login</button>
                         <a href="#" style="color: blue;">Forgotten password?</a>
                     </div>
-                    <p>${mess}</p>
                 </div>
             </div>
         </form>

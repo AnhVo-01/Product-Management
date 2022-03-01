@@ -87,7 +87,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="LogoutServlet">
                         <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
                         <span class="text nav-text">Logout</span>
                     </a>
