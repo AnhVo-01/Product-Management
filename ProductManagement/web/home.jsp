@@ -7,271 +7,307 @@
         <title>Home Page</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/Jquery.js"></script>
+        <script src="https://kit.fontawesome.com/a4edd5786f.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/home.css">
     </head>
-    <body>
-        <div class="container">
-            <div class="navigation">
-                <ul>
-                    <li>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="img/logo.png">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Product</span>
+                    <span class="profession">Management</span>
+                </div>
+            </div>
+            <i class="fa-solid fa-angle-right fa-sm toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+                <li class="search-box">
+                    <i class="fa-solid fa-magnifying-glass fa-lg icon"></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
                         <a href="#">
-                            <span class="icon"><i class="fas fa-users-cog"></i></span>
-                            <span class="title">Brand Name</span>
+                            <i class="fa-solid fa-house fa-lg icon"></i>
+                            <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li>
+
+                    <li class="nav-link">
+                        <a href="Customer">
+                            <i class="fa-solid fa-user-group fa-lg icon"></i>
+                            <span class="text nav-text">Customers</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
                         <a href="#">
-                            <span class="icon"><i class="fas fa-home"></i></span>
-                            <span class="title">Dashboard</span>
+                            <i class="fa-solid fa-bell fa-lg icon"></i>
+                            <span class="text nav-text">Notifications</span>
                         </a>
                     </li>
-                    <li>
+
+                    <li class="nav-link">
                         <a href="#">
-                            <span class="icon"><i class="fas fa-user"></i></span>
-                            <span class="title">Customers</span>
+                            <i class="fa-solid fa-chart-pie fa-lg icon"></i>
+                            <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
-                    <li>
+
+                    <li class="nav-link">
                         <a href="#">
-                            <span class="icon"><i class="fas fa-comment"></i></span>
-                            <span class="title">Message</span>
+                            <i class="fa-solid fa-heart fa-lg icon"></i>
+                            <span class="text nav-text">Likes</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-question-circle"></i></span>
-                            <span class="title">Help</span>
+
+                    <li class="nav-link">
+                        <a href="AccoutList">
+                            <i class="fa-solid fa-lock fa-lg icon"></i>
+                            <span class="text nav-text">Accounts</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-cog"></i></span>
-                            <span class="title">Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="AccountList">
-                            <span class="icon"><i class="fas fa-lock"></i></span>
-                            <span class="title">Password</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                            <span class="title">Sign Out</span>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
 
-            <!-- main -->
-            <div class="main">
-                <div class="top-bar">
-                    <div class="toggle">
-                        <i class="fas fa-bars"></i>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class="fa-solid fa-moon fa-lg icon moon"></i>
+                        <i class="fa-solid fa-sun fa-lg icon sun"></i>
                     </div>
-                    <div class="search">
-                        <label>
-                            <input type="text" placeholder="Search here">
-                            <i class="fas fa-search"></i>
-                            <!-- <img src="images/search.png"> -->
-                        </label>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
                     </div>
-                    <div class="user">
-                        <img src="images/user.jpg">
-                    </div>
+                </li>               
+            </div>
+        </div>
+    </nav>
+     <!-- main -->
+    <div class="main">
+        <div class="home">
+            <div class="text">Dashboard</div>
+        </div>
+
+        <!-- card -->
+        <div class="card-box">
+            <div class="card">
+                <div>
+                    <div class="numbers">1,504</div>
+                    <div class="card-name">Daily Views</div>
                 </div>
-
-                <!-- card -->
-                <div class="card-box">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">1,504</div>
-                            <div class="card-name">Daily Views</div>
-                        </div>
-                        <div class="iconBx">
-                            <i class="far fa-eye"></i>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">80</div>
-                            <div class="card-name">Sales</div>
-                        </div>
-                        <div class="iconBx">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">284</div>
-                            <div class="card-name">Comments</div>
-                        </div>
-                        <div class="iconBx">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">$7,842</div>
-                            <div class="card-name">Earning</div>
-                        </div>
-                        <div class="iconBx">
-                            <i class="far fa-money-bill-alt"></i>
-                        </div>
-                    </div>
+                <div class="iconBx">
+                    <i class="far fa-eye"></i>
                 </div>
-
-                <!-- order details list -->
-                <div class="details">
-                    <div class="recent-orders">
-                        <div class="card-header">
-                            <h2>Recent Orders</h2>
-                            <a href="#" class="btn">View All</a>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Price</td>
-                                    <td>Payment</td>
-                                    <td>Status</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Star Refrigerator</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-delivered">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Window Coolers</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status-pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Speakers</td>
-                                    <td>$620</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-return">Return</span></td>
-                                </tr>
-                                <tr>
-                                    <td>HP Laptop</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status-inprogress">In Progress</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Apple Watch</td>
-                                    <td>$1200</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-delivered">Delivered</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Wall Fan</td>
-                                    <td>$110</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Adidas Shoes</td>
-                                    <td>$620</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-return">Return</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status-inprogress">In Progress</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Casual Shoes</td>
-                                    <td>$575</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Wall Fan</td>
-                                    <td>$110</td>
-                                    <td>Paid</td>
-                                    <td><span class="status-pending">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Denim Shirts</td>
-                                    <td>$110</td>
-                                    <td>Due</td>
-                                    <td><span class="status-inprogress">In Progress</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- new customer -->
-                    <div class="recent-cus">
-                        <div class="card-header">
-                            <h2>Recent Customers</h2>
-                        </div>
-                        <table>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img1.jpg"></div></td>
-                                <td><h4>David<br><span>Italy</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img2.jpg"></div></td>
-                                <td><h4>Muhammad<br><span>India</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img3.jpg"></div></td>
-                                <td><h4>Amelia<br><span>France</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img4.jpg"></div></td>
-                                <td><h4>Olivia<br><span>USA</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img5.jpg"></div></td>
-                                <td><h4>Amit<br><span>Japan</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img6.jpg"></div></td>
-                                <td><h4>Ashraf<br><span>India</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img7.jpg"></div></td>
-                                <td><h4>Diana<br><span>Malaysia</span></h4></td>
-                            </tr>
-                            <tr>
-                                <td width ="60px"><div class="imgBx"><img src="images/img5.jpg"></div></td>
-                                <td><h4>Amit<br><span>Japan</span></h4></td>
-                            </tr>
-                        </table>
-                    </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">80</div>
+                    <div class="card-name">Sales</div>
+                </div>
+                <div class="iconBx">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">284</div>
+                    <div class="card-name">Comments</div>
+                </div>
+                <div class="iconBx">
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <div class="numbers">$7,842</div>
+                    <div class="card-name">Earning</div>
+                </div>
+                <div class="iconBx">
+                    <i class="far fa-money-bill-alt"></i>
                 </div>
             </div>
         </div>
+
+        <!-- order details list -->
+        <div class="details">
+            <div class="recent-orders">
+                <div class="card-header">
+                    <h2>Recent Orders</h2>
+                    <a href="#" class="btn">View All</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Payment</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Star Refrigerator</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status-delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Window Coolers</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Speakers</td>
+                            <td>$620</td>
+                            <td>Paid</td>
+                            <td><span class="status-return">Return</span></td>
+                        </tr>
+                        <tr>
+                            <td>HP Laptop</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status-inprogress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td>Apple Watch</td>
+                            <td>$1200</td>
+                            <td>Paid</td>
+                            <td><span class="status-delivered">Delivered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Wall Fan</td>
+                            <td>$110</td>
+                            <td>Paid</td>
+                            <td><span class="status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adidas Shoes</td>
+                            <td>$620</td>
+                            <td>Paid</td>
+                            <td><span class="status-return">Return</span></td>
+                        </tr>
+                        <tr>
+                            <td>Denim Shirts</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status-inprogress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td>Casual Shoes</td>
+                            <td>$575</td>
+                            <td>Paid</td>
+                            <td><span class="status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Wall Fan</td>
+                            <td>$110</td>
+                            <td>Paid</td>
+                            <td><span class="status-pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>Denim Shirts</td>
+                            <td>$110</td>
+                            <td>Due</td>
+                            <td><span class="status-inprogress">In Progress</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- new customer -->
+            <div class="recent-cus">
+                <div class="card-header">
+                    <h2>Recent Customers</h2>
+                </div>
+                <table>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img1.jpg"></div></td>
+                        <td><h4>David<br><span>Italy</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img2.jpg"></div></td>
+                        <td><h4>Muhammad<br><span>India</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img3.jpg"></div></td>
+                        <td><h4>Amelia<br><span>France</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img4.jpg"></div></td>
+                        <td><h4>Olivia<br><span>USA</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img5.jpg"></div></td>
+                        <td><h4>Amit<br><span>Japan</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img6.jpg"></div></td>
+                        <td><h4>Ashraf<br><span>India</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img7.jpg"></div></td>
+                        <td><h4>Diana<br><span>Malaysia</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td width ="60px"><div class="imgBx"><img src="images/img5.jpg"></div></td>
+                        <td><h4>Amit<br><span>Japan</span></h4></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
         
-        <script>
-        //menu toggle
-        let toggle = document.querySelector('.toggle');
-        let navigation = document.querySelector('.navigation');
+    <script>
+        const body = document.querySelector('body'),
+        sidebar = body.querySelector('nav'),
+        toggle = body.querySelector(".toggle"),
+        searchBtn = body.querySelector(".search-box"),
+        modeSwitch = body.querySelector(".toggle-switch"),
+        modeText = body.querySelector(".mode-text");
+
         let main = document.querySelector('.main');
 
-        toggle.onclick = function(){
-            navigation.classList.toggle('active');
+        toggle.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
             main.classList.toggle('active');
-        }
+        })
 
-        //add hovered class in selected list item
-        let list = document.querySelectorAll(',navigation li');
-        function activeLink(){
-            list.forEach((item) =>item.classList.remove('hovered'));
-            this.classList.add('hovered');
-        }
-        list.forEach((item) => item.addEventListener('mouseover', activeLink));
+        searchBtn.addEventListener("click" , () =>{
+            sidebar.classList.toggle("close");
+            main.classList.toggle('active');
+        })
+
+        modeSwitch.addEventListener("click" , () =>{
+            body.classList.toggle("dark");
+    
+            if(body.classList.contains("dark")){
+                modeText.innerText = "Light mode";
+            }else{
+                modeText.innerText = "Dark mode";
+        
+            }
+        });
     </script>
     </body>
 </html>
