@@ -379,6 +379,9 @@ body.dark .home .text{
 .details .recent-orders table tr td{
     padding: 10px;
 }
+.details .recent-orders table tr td:last-child{
+    text-align: end;
+}
 
 /* new customer --------------------------------------------- */
 .recent-cus{

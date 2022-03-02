@@ -61,7 +61,6 @@ a:hover{
     background-color: #ffe6e6;
     color: #f00;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-    display: none;
 }
 .input-text input{
     width: 100%;

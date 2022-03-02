@@ -128,18 +128,20 @@
                             <td>Phone</td>
                             <td>City</td>
                             <td>Address</td>
+                            <td>More</td>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${sessionScope.CusList}" var="c" varStatus="loop">
                             <tr id="show-info">                      
-                                <td id="text"><c:out value="${c.name}"/></td>
-                                <td id="text" style="display: none;"><c:out value="${c.cusid}"/></td>
-                                <td id="text"><c:out value="+(84) ${c.phone}"/></td>
-                                <td id="text" style="display: none;"><c:out value="${c.email}"/></td>
-                                <td id="text" style="display: none;"><c:out value="${c.fax}"/></td>
-                                <td id="text"><c:out value="${c.cusAddress.city}"/></td>
-                                <td id="text"><address><c:out value="${c.cusAddress.street}"/></address></td>
+                                <td id="inN"><c:out value="${c.name}"/></td>
+                                <td id="inID" style="display: none;"><c:out value="${c.cusid}"/></td>
+                                <td id="inP"><c:out value="+(84) ${c.phone}"/></td>
+                                <td id="inE" style="display: none;"><c:out value="${c.email}"/></td>
+                                <td id="inF" style="display: none;"><c:out value="${c.fax}"/></td>
+                                <td id="inC"><c:out value="${c.cusAddress.city}"/></td>
+                                <td id="inA"><address><c:out value="${c.cusAddress.street}"/></address></td>
+                                <td><i class="fa-solid fa-circle-info"></i></td>
                             </tr>
                             <tr>
                         </c:forEach>
@@ -157,47 +159,75 @@
                     <tr>
                         <td width ="60px"><i class="fa-solid fa-circle-user fa-3x imgBx"></i></td>
                         <td>
-                            <h4 id="out-text">Customer Name</h4>
-                            <span id="out-text">ID</span>
+                            <h4 id="outN">Customer Name</h4>
+                            <span id="outID">ID</span>
                         </td>
                     </tr>
                     <tr>
                         <td>Phone: </td>
-                        <td id="out-text">numbers</td>
+                        <td id="outP">numbers</td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td id="out-text">username@email.com</td>
+                        <td id="outE">username@email.com</td>
                     </tr>
                     <tr>
                         <td>Fax: </td>
-                        <td id="out-text">(Empty)</td>
+                        <td id="outF">(Empty)</td>
                     </tr>
                     <tr>
                         <td>City: </td>
-                        <td id="out-text">City Name</td>
+                        <td id="outC">City Name</td>
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><address id="out-text">Street Address</address></td>
+                        <td><address id="outA">Street Address</address></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
     <script>
-        const btn = document.querySelector('#show-info'),
-            x = document.querySelectorAll("#text"),
-            y = document.querySelectorAll("#out-text");
-        const text = [];
-        btn.addEventListener("click" , () =>{
-            for (let i = 0; i < x.length; i++) {
-                text[i] = x[i].innerText;
-            }
-            for(let j = 0; j < y.length; j++){
-                y[j].innerHTML = text[j];
-            }
-        });
+        const btn = document.querySelectorAll('#show-info'),
+            x = document.querySelectorAll("#inN"),
+            xID = document.querySelectorAll("#inID"),
+            xP = document.querySelectorAll("#inP"),
+            xE = document.querySelectorAll("#inE"),
+            xF = document.querySelectorAll("#inF"),
+            xC = document.querySelectorAll("#inC"),
+            xA = document.querySelectorAll("#inA");
+            
+        const y = document.querySelector("#outN"),
+            yID = document.querySelector("#outID"),
+            yP = document.querySelector("#outP"),
+            yE = document.querySelector("#outE"),
+            yF = document.querySelector("#outF"),
+            yC = document.querySelector("#outC"),
+            yA = document.querySelector("#outA");
+
+        const name = [], id = [], phone = [], email = [], fax = [], city = [], addr = [];
+
+        for (let z = 0; z < btn.length; z++) {
+            btn[z].onclick = () => {
+                for (let i = 0; i < x.length; i++) {
+                    name[i] = x[i].textContent;
+                    id[i] = xID[i].textContent;
+                    phone[i] = xP[i].textContent;
+                    email[i] = xE[i].textContent;
+                    fax[i] = xF[i].textContent;
+                    city[i] = xC[i].textContent;
+                    addr[i] = xA[i].textContent;
+                }
+
+                y.textContent = name[z];
+                yID.textContent = "ID: " + id[z];
+                yP.textContent = phone[z];
+                yE.textContent = email[z];
+                yF.textContent = fax[z];
+                yC.textContent = city[z];
+                yA.textContent = addr[z];
+            };
+        };
     </script>
     <script src="js/navController.js"></script>
 </body>

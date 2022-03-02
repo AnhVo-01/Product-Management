@@ -35,7 +35,7 @@
                         <div>
                             <h1 style="text-align: center; color: #404040;">Login Account</h1>
                         </div>
-                        <div class="alert">${mess}</div>
+                        <p class="alert">username or password is invalid!</p>
                         <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
 
                         <div class="input-text">
