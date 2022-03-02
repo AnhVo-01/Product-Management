@@ -1,3 +1,4 @@
+/* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 *{
     margin: 0;
@@ -470,11 +471,7 @@ body.dark .home .text{
     border-radius: 20px;
 }
 .recent-cus .imgBx{
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
+    color: #1795ce;
 }
 .recent-cus .imgBx img{
     position: absolute;
