@@ -23,13 +23,14 @@ public class CusDAO extends BaseDAO<Customers> {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Customers a = new Customers();
-                a.setName(rs.getString(1));
-                a.setPhone(rs.getInt(2));
-                a.setEmail(rs.getString(3));
-                a.setCusAddress(new Address(rs.getString(4),rs.getString(5),rs.getInt(6)));
-                a.setEmail(rs.getString("email"));
-                cus.add(a);
+                Customers c = new Customers();
+                c.setCusid(rs.getString(1));
+                c.setName(rs.getString(2));
+                c.setPhone(rs.getInt(3));
+                c.setCusAddress(new Address(rs.getString(4),rs.getString(5),rs.getString(6)));
+                c.setEmail(rs.getString(7));
+                c.setFax(rs.getString(8));              
+                cus.add(c);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);

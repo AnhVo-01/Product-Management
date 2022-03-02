@@ -7,12 +7,12 @@ package model;
 public class Address {
     String street;
     String city;
-    int zipcode;
+    String zipcode;
 
     public Address() {
     }
 
-    public Address(String street, String city, int zipcode) {
+    public Address(String street, String city, String zipcode) {
         this.street = street;
         this.city = city;
         this.zipcode = zipcode;
@@ -34,11 +34,11 @@ public class Address {
         this.city = city;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
     

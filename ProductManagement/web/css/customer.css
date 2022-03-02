@@ -399,7 +399,7 @@ body.dark .home .text{
     line-height: 1.2rem;
     color: var(--text-color);
 }
-.recent-cus table tr td h4 span{
+.recent-cus table tr td span{
     font-size: 12px;
     color: var(--black2);
 }

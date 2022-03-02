@@ -132,16 +132,16 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${sessionScope.CusList}" var="c" varStatus="loop">
-                            <tr>
-                                <td><c:out value="${c.name}"/></td>
-                                <td><c:out value="${c.phone}"/></td>
-                                <td><c:out value="${c.cusAddress.city}"/></td>
-                                <td><address><c:out value="${c.cusAddress.street}"/></address></td>
-<!--                                <td>
-                                    <span class="status_inprogress status"><i class="fa-solid fa-pen"></i></span>
-                                    <span class="remove"><i class="fa-solid fa-trash-can"></i></span>
-                                </td>-->
+                            <tr id="show-info">                      
+                                <td id="text"><c:out value="${c.name}"/></td>
+                                <td id="text" style="display: none;"><c:out value="${c.cusid}"/></td>
+                                <td id="text"><c:out value="+(84) ${c.phone}"/></td>
+                                <td id="text" style="display: none;"><c:out value="${c.email}"/></td>
+                                <td id="text" style="display: none;"><c:out value="${c.fax}"/></td>
+                                <td id="text"><c:out value="${c.cusAddress.city}"/></td>
+                                <td id="text"><address><c:out value="${c.cusAddress.street}"/></address></td>
                             </tr>
+                            <tr>
                         </c:forEach>
                     </tbody>
                 </table>
@@ -156,33 +156,49 @@
                 <table>
                     <tr>
                         <td width ="60px"><i class="fa-solid fa-circle-user fa-3x imgBx"></i></td>
-                        <td><h4>Ngo Vu Anh Vo<br><span>CustomerID</span></h4></td>
+                        <td>
+                            <h4 id="out-text">Customer Name</h4>
+                            <span id="out-text">ID</span>
+                        </td>
                     </tr>
                     <tr>
                         <td>Phone: </td>
-                        <td>0862795555</td>
+                        <td id="out-text">numbers</td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td>vomoc123@gmail.com</td>
+                        <td id="out-text">username@email.com</td>
                     </tr>
                     <tr>
                         <td>Fax: </td>
-                        <td></td>
+                        <td id="out-text">(Empty)</td>
                     </tr>
                     <tr>
                         <td>City: </td>
-                        <td>Hai Duong</td>
+                        <td id="out-text">City Name</td>
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><address>xom 4, Quach An, Thanh An, Thanh Ha</address></td>
+                        <td><address id="out-text">Street Address</address></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
-
+    <script>
+        const btn = document.querySelector('#show-info'),
+            x = document.querySelectorAll("#text"),
+            y = document.querySelectorAll("#out-text");
+        const text = [];
+        btn.addEventListener("click" , () =>{
+            for (let i = 0; i < x.length; i++) {
+                text[i] = x[i].innerText;
+            }
+            for(let j = 0; j < y.length; j++){
+                y[j].innerHTML = text[j];
+            }
+        });
+    </script>
     <script src="js/navController.js"></script>
 </body>
 </html>
