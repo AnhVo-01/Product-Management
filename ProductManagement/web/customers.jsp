@@ -25,8 +25,8 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">TomatoTM</span>
-                    <span class="profession">Time management</span>
+                    <span class="name">${sessionScope.user.displayname}</span>
+                    <span class="profession">Product management</span>
                 </div>
             </div>
             <i class="fa-solid fa-angle-right fa-sm toggle"></i>

@@ -473,14 +473,7 @@ body.dark .home .text{
 .recent-cus .imgBx{
     color: #1795ce;
 }
-.recent-cus .imgBx img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 .recent-cus table tr td{
     padding: 12px 10px;
 }
