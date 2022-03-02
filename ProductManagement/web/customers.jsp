@@ -120,19 +120,14 @@
                 <div class="card-header">
                     <h2>Customer</h2>
                 </div>
-                <hr>
-                <!-- <button onclick="myCreateFunction()">Create row</button> -->
-
-                <table id="myTable">
+                <hr style="border: 0; height: 1px; background-color: #000;">
+                <table>
                     <thead>
                         <tr>
                             <td>Name</td>
                             <td>Phone</td>
-                            <td>Email</td>
                             <td>City</td>
-                            <td>Street Address</td>
-                            <td>ZIP Code</td>
-                            <td></td>
+                            <td>Address</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -140,56 +135,54 @@
                             <tr>
                                 <td><c:out value="${c.name}"/></td>
                                 <td><c:out value="${c.phone}"/></td>
-                                <td><c:out value="${c.email}"/></td>
-                                <td><c:out value="${c.cusAddress.street}"/></td>
-                                <td><address><c:out value="${c.cusAddress.city}"/></address></td>
-                                <td><c:out value="${c.cusAddress.zipcode}"/></td>
-                                <td>
+                                <td><c:out value="${c.cusAddress.city}"/></td>
+                                <td><address><c:out value="${c.cusAddress.street}"/></address></td>
+<!--                                <td>
                                     <span class="status_inprogress status"><i class="fa-solid fa-pen"></i></span>
                                     <span class="remove"><i class="fa-solid fa-trash-can"></i></span>
-                                </td>
+                                </td>-->
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
             </div>
 
-            <div class="end">
-                <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
+            <!-- customer - info -->
+            <div class="card-box recent-cus">
+                <div class="card-header">
+                    <h2>Info</h2>
+                </div>
+                <hr style="border: 0; height: 1px; background-color: #000;">
+                <table>
+                    <tr>
+                        <td width ="60px"><i class="fa-solid fa-circle-user fa-3x imgBx"></i></td>
+                        <td><h4>Ngo Vu Anh Vo<br><span>CustomerID</span></h4></td>
+                    </tr>
+                    <tr>
+                        <td>Phone: </td>
+                        <td>0862795555</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>vomoc123@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Fax: </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>City: </td>
+                        <td>Hai Duong</td>
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td><address>xom 4, Quach An, Thanh An, Thanh Ha</address></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 
-    <script>
-        const body = document.querySelector('body'),
-        sidebar = body.querySelector('nav'),
-        toggle = body.querySelector(".toggle"),
-        searchBtn = body.querySelector(".search-box"),
-        modeSwitch = body.querySelector(".toggle-switch"),
-        modeText = body.querySelector(".mode-text");
-
-        let main = document.querySelector('.main');
-
-        toggle.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-            main.classList.toggle('active');
-        })
-
-        searchBtn.addEventListener("click" , () =>{
-            sidebar.classList.toggle("close");
-            main.classList.toggle('active');
-        })
-
-        modeSwitch.addEventListener("click" , () =>{
-            body.classList.toggle("dark");
-    
-            if(body.classList.contains("dark")){
-                modeText.innerText = "Light mode";
-            }else{
-                modeText.innerText = "Dark mode";
-        
-            }
-        });
-    </script>
+    <script src="js/navController.js"></script>
 </body>
 </html>
