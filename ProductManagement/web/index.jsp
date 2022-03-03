@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +36,8 @@
                         <div>
                             <h1 style="text-align: center; color: #404040;">Login Account</h1>
                         </div>
-                        <p class="alert">username or password is invalid!</p>
+                        
+                        <p <c:if test="${not empty mess}">class="alert"</c:if>>${mess}</p>
                         <hr style="border: 0; height: 1px; background-color: #9a9a9a; margin: 15px 0;">
 
                         <div class="input-text">
