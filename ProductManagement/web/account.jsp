@@ -120,7 +120,6 @@
                     <h2>Accounts</h2>
                     <div class="status status-header">
                         <span class="status status_user">User</span>
-                        <!-- <span class="status-inprogress">In Progress</span> -->
                         <span class="status status_mod">Mod</span>
                         <span class="status status_admin">Admin</span>
                     </div>
@@ -145,10 +144,10 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${sessionScope.AccoutList}" var="a" varStatus="loop">
-                            <tr>
+                            <tr class="form">
                                 <td>
                                     <span class="status">
-                                        <a style="color: #000;" href="#" onclick="warning(${a.id})"><i class="fa-solid fa-trash-can remove"></i></a>
+                                        <a style="color: #000;" href="#" onclick="warning('${a.id}')"><i class="fa-solid fa-trash-can remove"></i></a>
                                     </span>
                                 </td>
                                 <td><c:out value="${a.id}"/></td>
@@ -159,13 +158,13 @@
                                 <td>
                                     <c:choose>
                                         <c:when test="${a.status.isAdmin == true}">
-                                            <span class="status status_admin"><i class="fa-solid fa-pen"></i></span>
+                                            <span id="edit-Btn" class="status status_admin"><i class="fa-solid fa-pen"></i></span>
                                         </c:when>
                                         <c:when test="${a.status.isMod == true}">
-                                            <span class="status status_mod"><i class="fa-solid fa-pen"></i></span>
+                                            <span id="edit-Btn" class="status status_mod"><i class="fa-solid fa-pen"></i></span>
                                         </c:when>
                                         <c:otherwise>
-                                            <span class="status status_user"><i class="fa-solid fa-pen"></i></span>
+                                            <span id="edit-Btn" class="status status_user"><i class="fa-solid fa-pen"></i></span>
                                         </c:otherwise>
                                     </c:choose>
                                 </td>
@@ -180,12 +179,132 @@
             </div>
         </div>
     </div>
+    
+    <!-- Add-more --------------------------------------- -->
+    <form action="AccountController" method="POST">
+        <div class="Popup" id="myModal">
+            <div class="Set_page">
+                <span class="close-btn" id="close-set">&times;</span>
+                <div style="padding: 20px 40px 0 40px;">
+                    <h1>Add Account</h1>
+                    <hr style="border: 0; height: 1px; background-color: #000; margin: 15px 0;">
+                </div>
+                <div class="Set-pop">
+                    <div class="options">
+                        <h3>User Name</h3>
+                        <input type="text" name="uname" placeholder="User Name">
+                    </div>
+                    <div class="options">
+                        <h3>Password</h3>
+                        <input type="password" name="upass" placeholder="Password">
+                    </div>
+                    <div class="options">
+                        <h3>Display Name</h3>
+                        <input type="text" name="udisplay" placeholder="Display Name">
+                    </div>
+                    <div class="options">
+                        <h3>Email</h3>
+                        <input type="email" name="uemail" placeholder="Email (optional)">
+                    </div>
+                    <div class="options">
+                        <h3>Status</h3>
+                        <input type="radio" value="true" name="isMod"> isMod
+                        <input type="radio" value="true" name="isAdmin"> isAdmin
+                    </div>
+                </div>
+
+                <div class="submit-btn">
+                    <button class="opt-btn" type="submit" name="created"><i class="fa-solid fa-circle-plus"></i> Create</button>
+                </div>    
+            </div>
+        </div>
+    </form>
+    
+
+    <!-- Edit --------------------------------------- -->
+    <form action="AccountController" method="GET">
+        <div class="Popup" id="myEdit">
+            <div class="Set_page">
+                <span class="close-btn" id="close-set">&times;</span>
+                <div style="padding: 20px 40px 0 40px;">
+                    <h1>Edit Account</h1>
+                    <hr style="border: 0; height: 1px; background-color: #000; margin: 15px 0;">
+                </div>
+                <div class="Set-pop">
+                    <div class="options">
+                        <h3>User Name</h3>
+                        <input type="text">
+                    </div>
+                    <div class="options">
+                        <h3>Password</h3>
+                        <input type="password">
+                    </div>
+                    <div class="options">
+                        <h3>Display Name</h3>
+                        <input type="text">
+                    </div>
+                    <div class="options">
+                        <h3>Email</h3>
+                        <input type="email">
+                    </div>
+                    <div class="options">
+                        <h3>Status</h3>
+                        <input type="radio" <c:if test="${sessionScope.isMod}"> checked</c:if>> isMod
+                        <input type="radio"> isAdmin
+                    </div>
+                </div>
+
+                <div class="submit-btn">
+                    <button class="opt-btn save-btn" type="submit" name="created"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                </div>    
+            </div>
+        </div>
+    </form>
 
     <script>
-        function warning(id){
+        const modal = document.getElementById("myModal"),
+            edit = document.getElementById("myEdit"),
+            save = document.querySelector(".form"),
+            span = document.querySelectorAll("#close-set");
+
+        const btn = document.querySelector(".add_more"),
+            btn1 = document.querySelectorAll("#edit-Btn"),
+            sBtn = document.querySelectorAll(".save-btn");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        };
+        for (let k = 0; k < btn1.length; k++){
+            btn1[k].onclick = function() {
+                edit.style.display = "block";
+            };
+        }
+
+        span[0].onclick = function() {
+            modal.style.display = "none";
+        };
+        for (let i = 1; i < span.length; i++){
+            span[i].onclick = function() {
+                edit.style.display = "none";
+            };
+        };
+        for (let j = 0; j < sBtn.length; j++){
+            sBtn[j].onclick = () => {
+                save.classList.toggle("save");
+            };
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    <script>
+        function warning(uid){
             var option = confirm('Do you want to continue?');
             if(option === true){
-                window.location.href = 'AccountDelete?aid='+id;
+                window.location.href = 'AccountDelete?aid='+uid;
             }
         };
     </script>
