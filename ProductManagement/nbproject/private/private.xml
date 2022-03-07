@@ -5,9 +5,11 @@
         <group>
             <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/controller/test.java</file>
             <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/web/account.jsp</file>
-            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/controller/AccountUpdate.java</file>
-            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/controller/AccountList.java</file>
+            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/controller/AccountController.java</file>
             <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/DAO/AccountDAO.java</file>
+            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/web/css/account.css</file>
+            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/src/java/controller/AccountList.java</file>
+            <file>file:/D:/NetBeans/PRJ301/Produce-Manage/ProductManagement/web/js/accRegex.js</file>
         </group>
     </open-files>
 </project-private>
