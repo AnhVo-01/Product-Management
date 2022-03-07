@@ -500,6 +500,13 @@ body.dark .home .text{
     border-radius: 5px;
     background: #f2f2f2;
 }
+.options span{
+    clear: none;
+    position: absolute;
+    right: 60px;
+    font-size: 14px;
+    color: #f00;
+}
 .submit-btn{
     position: absolute;
     transform: translateX(10%);

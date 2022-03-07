@@ -192,19 +192,22 @@
                 <div class="Set-pop">
                     <div class="options">
                         <h3>User Name</h3>
-                        <input type="text" name="uname" placeholder="User Name">
+                        <input id="user-name" type="text" name="uname" placeholder="User Name" required>
+                        <span id="name-error"></span>
                     </div>
                     <div class="options">
                         <h3>Password</h3>
-                        <input type="password" name="upass" placeholder="Password">
+                        <input id="user-pass" type="password" name="upass" placeholder="Password" required>
+                        <span id="pass-error"></span>
                     </div>
                     <div class="options">
                         <h3>Display Name</h3>
-                        <input type="text" name="udisplay" placeholder="Display Name">
+                        <input type="text" name="udisplay" placeholder="Display Name" required>
                     </div>
                     <div class="options">
                         <h3>Email</h3>
-                        <input type="email" name="uemail" placeholder="Email (optional)">
+                        <input id="user-email" type="email" name="uemail" placeholder="Email (optional)">
+                        <span id="email-error"></span>
                     </div>
                     <div class="options">
                         <h3>Status</h3>
@@ -231,6 +234,10 @@
                     <hr style="border: 0; height: 1px; background-color: #000; margin: 15px 0;">
                 </div>
                 <div class="Set-pop">
+                    <div class="options">
+                        <h3>User ID</h3>
+                        <input type="text" placeholder="ID">
+                    </div>
                     <div class="options">
                         <h3>User Name</h3>
                         <input type="text">
@@ -308,6 +315,61 @@
             }
         };
     </script>
+    
+    <script>
+        var nameErr = document.getElementById('name-error');
+        var passErr = document.getElementById('pass-error');
+        var emailErr = document.getElementById('email-error');
+        const nameArea = document.getElementById('user-name'),
+            passArea = document.getElementById('user-pass'),
+            emailArea = document.getElementById('user-email');
+
+        nameArea.onkeyup = () => {
+            var name = nameArea.value;
+
+            if (name.length == 0){
+                nameErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            if (!name.match(/^[A-Za-z0-9_\.]+$/)){
+                nameErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            nameErr.innerHTML = '<i style="color: #2e8b57;" class="fa-solid fa-circle-check"></i>';
+            return true;
+        };
+
+        passArea.onkeyup = () => {
+            var pass = passArea.value;
+
+            if (pass.length == 0){
+                passErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            if (!pass.match(/^[A-Za-z0-9]+$/)){
+                passErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            passErr.innerHTML = '<i style="color: #2e8b57;" class="fa-solid fa-circle-check"></i>';
+            return true;
+        };
+
+        emailArea.onkeyup = () => {
+            var email = emailArea.value;
+
+            if (email.length == 0){
+                emailErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+                emailErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+                return false;
+            }
+            emailErr.innerHTML = '<i style="color: #2e8b57;" class="fa-solid fa-circle-check"></i>';
+            return true;
+        };
+    </script>
+    
     <script src="js/navController.js"></script>
     </body>
 </html>
