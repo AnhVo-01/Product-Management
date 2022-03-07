@@ -44,11 +44,11 @@ public class test {
 
 
         // add the student to the database
-//        db.createAccount("U"+ID(), Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));
-//        ArrayList<Account> list = db.getAll();
-//        for (Account a : list){
-//            System.out.println(a);
-//        }
-        System.out.println(db.getAcc("U34485871054").toString());
+        db.createAccount("U"+ID(), Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));
+        ArrayList<Account> list = db.getAll();
+        for (Account a : list){
+            System.out.println(a);
+        }
+//        System.out.println(db.getAcc("U34485871054").toString());
     }
 }

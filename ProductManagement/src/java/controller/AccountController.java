@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AnhVo-PC
  */
-public class AccountCreate extends HttpServlet {
+public class AccountController extends HttpServlet {
     public String ID() {
         Random rd = new Random();
         StringBuilder sb = new StringBuilder();
@@ -35,7 +35,24 @@ public class AccountCreate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String id = request.getParameter("sid");
+        String Name = request.getParameter("userN");
+        String Pass = request.getParameter("userP");
+        String Dis = request.getParameter("display");
+        String Email = request.getParameter("email");
+        String Mod = request.getParameter("eMod");
+        String Admin = request.getParameter("eAdmin");
+        if(Mod == null || Mod.isEmpty()) {
+            Mod = "false";
+        }
+        if(Admin == null || Admin.isEmpty()) {
+            Admin = "false";
+        }
+
+        AccountDAO dao = new AccountDAO();  
+        
+        dao.updateAcc(id, Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));   
+        response.sendRedirect("AccountList");
     }
 
     @Override
@@ -45,12 +62,17 @@ public class AccountCreate extends HttpServlet {
         String Pass = request.getParameter("upass");
         String Dis = request.getParameter("udisplay");
         String Email = request.getParameter("uemail");
-        String Mod = request.getParameter("isMod");
-        if(Mod == null || Mod.isEmpty()) {
+        String Status = request.getParameter("status");
+        
+        String Mod = "", Admin = "";
+        if(Status.equals("isMod")){
+            Mod = "true";
+            Admin = "false";
+        }else if(Status.equals("isAdmin")){
             Mod = "false";
-        }
-        String Admin = request.getParameter("isAdmin");
-        if(Admin == null || Admin.isEmpty()) {
+            Admin = "true";
+        }else if(Status.equals("isUser")){
+            Mod = "false";
             Admin = "false";
         }
 

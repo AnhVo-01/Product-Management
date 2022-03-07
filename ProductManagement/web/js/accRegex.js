@@ -27,8 +27,8 @@ passArea.onkeyup = () => {
         passErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
         return false;
     }
-    if (!pass.match(/^[A-Za-z0-9]+$/)) {
-        passErr.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+    if (!pass.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/)) {
+        passErr.innerHTML = '<i style="color: #f9ca3f;" class="fa-solid fa-circle-exclamation"></i>';
         return false;
     }
     passErr.innerHTML = '<i style="color: #2e8b57;" class="fa-solid fa-circle-check"></i>';

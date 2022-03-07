@@ -150,11 +150,11 @@
                                         <a style="color: #000;" href="#" onclick="warning('${a.id}')"><i class="fa-solid fa-trash-can remove"></i></a>
                                     </span>
                                 </td>
-                                <td><c:out value="${a.id}"/></td>
-                                <td><c:out value="${a.username}"/></td>
-                                <td><c:out value="${a.password}"/></td>
-                                <td><c:out value="${a.displayname}"/></td>
-                                <td><c:out value="${a.email}"/></td>
+                                <td id="inID"><c:out value="${a.id}"/></td>
+                                <td id="inN"><c:out value="${a.username}"/></td>
+                                <td id="inP"><c:out value="${a.password}"/></td>
+                                <td id="inDP"><c:out value="${a.displayname}"/></td>
+                                <td id="inE"><c:out value="${a.email}"/></td>
                                 <td>
                                     <c:choose>
                                         <c:when test="${a.status.isAdmin == true}">
@@ -211,8 +211,9 @@
                     </div>
                     <div class="options">
                         <h3>Status</h3>
-                        <input type="radio" value="true" name="isMod"> isMod
-                        <input type="radio" value="true" name="isAdmin"> isAdmin
+                        <input type="radio" value="isUser" name="status"> User
+                        <input type="radio" value="isMod" name="status"> isMod
+                        <input type="radio" value="isAdmin" name="status"> isAdmin
                     </div>
                 </div>
 
@@ -236,28 +237,28 @@
                 <div class="Set-pop">
                     <div class="options">
                         <h3>User ID</h3>
-                        <input type="text" placeholder="ID">
+                        <input type="text" name="sid" id="outID">
                     </div>
                     <div class="options">
                         <h3>User Name</h3>
-                        <input type="text">
+                        <input type="text" name="userN" id="outN">
                     </div>
                     <div class="options">
                         <h3>Password</h3>
-                        <input type="password">
+                        <input type="text" name="userP" id="outP">
                     </div>
                     <div class="options">
                         <h3>Display Name</h3>
-                        <input type="text">
+                        <input type="text" name="display" id="outDP">
                     </div>
                     <div class="options">
                         <h3>Email</h3>
-                        <input type="email">
+                        <input type="email" name="email" id="outE">
                     </div>
                     <div class="options">
                         <h3>Status</h3>
-                        <input type="radio" <c:if test="${sessionScope.isMod}"> checked</c:if>> isMod
-                        <input type="radio"> isAdmin
+                        <input type="checkbox" name="eMod" value="true" <c:if test="${sessionScope.isMod}"> checked</c:if>> isMod
+                        <input type="checkbox" name="eAdmin" value="true"> isAdmin
                     </div>
                 </div>
 
@@ -271,21 +272,14 @@
     <script>
         const modal = document.getElementById("myModal"),
             edit = document.getElementById("myEdit"),
-            save = document.querySelector(".form"),
             span = document.querySelectorAll("#close-set");
 
         const btn = document.querySelector(".add_more"),
-            btn1 = document.querySelectorAll("#edit-Btn"),
-            sBtn = document.querySelectorAll(".save-btn");
+            btn1 = document.querySelectorAll("#edit-Btn");
 
         btn.onclick = function() {
             modal.style.display = "block";
         };
-        for (let k = 0; k < btn1.length; k++){
-            btn1[k].onclick = function() {
-                edit.style.display = "block";
-            };
-        }
 
         span[0].onclick = function() {
             modal.style.display = "none";
@@ -295,16 +289,45 @@
                 edit.style.display = "none";
             };
         };
-        for (let j = 0; j < sBtn.length; j++){
-            sBtn[j].onclick = () => {
-                save.classList.toggle("save");
-            };
-        };
 
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        };
+        
+        const x = document.querySelectorAll("#inN"),
+            xID = document.querySelectorAll("#inID"),
+            xP = document.querySelectorAll("#inP"),
+            xE = document.querySelectorAll("#inE"),
+            xA = document.querySelectorAll("#inDP");
+            
+        const y = document.querySelector("#outN"),
+            yID = document.querySelector("#outID"),
+            yP = document.querySelector("#outP"),
+            yE = document.querySelector("#outE"),
+            yA = document.querySelector("#outDP");
+
+        const name = [], id = [], pass = [], email = [], dp = [];
+
+        for (let z = 0; z < btn1.length; z++) {
+            btn1[z].onclick = () => {
+                for (let i = 0; i < x.length; i++) {
+                    name[i] = x[i].textContent;
+                    id[i] = xID[i].textContent;
+                    pass[i] = xP[i].textContent;
+                    email[i] = xE[i].textContent;
+                    dp[i] = xA[i].textContent;
+                }
+
+                edit.style.display = "block";
+
+                y.value = name[z];
+                yID.value = id[z];
+                yP.value = pass[z];
+                yE.value = email[z];
+                yA.value = dp[z];
+            };
         };
     </script>
     <script>
