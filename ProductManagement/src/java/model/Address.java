@@ -7,14 +7,16 @@ package model;
 public class Address {
     String street;
     String city;
+    String country;
     String zipcode;
 
     public Address() {
     }
 
-    public Address(String street, String city, String zipcode) {
+    public Address(String street, String city, String country, String zipcode) {
         this.street = street;
         this.city = city;
+        this.country = country;
         this.zipcode = zipcode;
     }
 
@@ -32,6 +34,14 @@ public class Address {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getZipcode() {

@@ -18,9 +18,9 @@ public class Customer extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CusDAO db = new CusDAO();
-        ArrayList<Customers> acc = db.getAll();
+        ArrayList<Customers> list = db.getAll();
        
-        request.getSession().setAttribute("CusList", acc);
+        request.getSession().setAttribute("CusList", list);
         request.getRequestDispatcher("customers.jsp").forward(request, response);
     }
 

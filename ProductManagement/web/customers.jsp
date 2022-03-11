@@ -114,7 +114,7 @@
             <div class="text">Customers Management</div>
         </div>
 
-        <!-- order details list -->
+        <!-- Customer details list -->
         <div class="details">
             <div class="card-box recent-orders">
                 <div class="card-header">
@@ -136,11 +136,13 @@
                             <tr id="show-info">                      
                                 <td id="inN"><c:out value="${c.name}"/></td>
                                 <td id="inID" style="display: none;"><c:out value="${c.cusid}"/></td>
-                                <td id="inP"><c:out value="+(84) ${c.phone}"/></td>
+                                <td id="inP"><c:out value="${c.phone}"/></td>
                                 <td id="inE" style="display: none;"><c:out value="${c.email}"/></td>
                                 <td id="inF" style="display: none;"><c:out value="${c.fax}"/></td>
+                                <td id="inZ" style="display: none;"><c:out value="${c.cusAddress.zipcode}"/></td>
                                 <td id="inC"><c:out value="${c.cusAddress.city}"/></td>
                                 <td id="inA"><address><c:out value="${c.cusAddress.street}"/></address></td>
+                                <td id="inR" style="display: none;"><c:out value="${c.cusAddress.country}"/></td>
                                 <td><i class="fa-solid fa-circle-info"></i></td>
                             </tr>
                             <tr>
@@ -176,12 +178,20 @@
                         <td id="outF">(Empty)</td>
                     </tr>
                     <tr>
+                        <td>Zip Code: </td>
+                        <td id="outZ"> (zip code)</td>
+                    </tr>
+                    <tr>
                         <td>City: </td>
                         <td id="outC">City Name</td>
                     </tr>
                     <tr>
                         <td>Address: </td>
                         <td><address id="outA">Street Address</address></td>
+                    </tr>
+                    <tr>
+                        <td>Country: </td>
+                        <td id="outR"></td>
                     </tr>
                 </table>
             </div>
@@ -195,7 +205,9 @@
             xE = document.querySelectorAll("#inE"),
             xF = document.querySelectorAll("#inF"),
             xC = document.querySelectorAll("#inC"),
-            xA = document.querySelectorAll("#inA");
+            xA = document.querySelectorAll("#inA"),
+            xR = document.querySelectorAll("#inR"),
+            xZ = document.querySelectorAll("#inZ");
             
         const y = document.querySelector("#outN"),
             yID = document.querySelector("#outID"),
@@ -203,9 +215,11 @@
             yE = document.querySelector("#outE"),
             yF = document.querySelector("#outF"),
             yC = document.querySelector("#outC"),
-            yA = document.querySelector("#outA");
+            yA = document.querySelector("#outA"),
+            yR = document.querySelector("#outR"),
+            yZ = document.querySelector("#outZ");
 
-        const name = [], id = [], phone = [], email = [], fax = [], city = [], addr = [];
+        const name = [], id = [], phone = [], email = [], fax = [], city = [], addr = [], country = [], zip = [];
 
         for (let z = 0; z < btn.length; z++) {
             btn[z].onclick = () => {
@@ -217,6 +231,8 @@
                     fax[i] = xF[i].textContent;
                     city[i] = xC[i].textContent;
                     addr[i] = xA[i].textContent;
+                    country[i] = xR[i].textContent;
+                    zip[i] = xZ[i].textContent;
                 }
 
                 y.textContent = name[z];
@@ -226,6 +242,8 @@
                 yF.textContent = fax[z];
                 yC.textContent = city[z];
                 yA.textContent = addr[z];
+                yR.textContent = country[z];
+                yZ.textContent = zip[z];
             };
         };
     </script>

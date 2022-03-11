@@ -26,10 +26,10 @@ public class CusDAO extends BaseDAO<Customers> {
                 Customers c = new Customers();
                 c.setCusid(rs.getString(1));
                 c.setName(rs.getString(2));
-                c.setPhone(rs.getInt(3));
-                c.setCusAddress(new Address(rs.getString(4),rs.getString(5),rs.getString(6)));
-                c.setEmail(rs.getString(7));
-                c.setFax(rs.getString(8));              
+                c.setPhone(rs.getString(3));
+                c.setCusAddress(new Address(rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+                c.setEmail(rs.getString(8));
+                c.setFax(rs.getString(9));              
                 cus.add(c);
             }
         } catch (SQLException ex) {
