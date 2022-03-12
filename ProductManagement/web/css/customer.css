@@ -331,12 +331,13 @@ body.dark .home .text{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 30px;
-    min-height: 90vh;
+    min-height: 85vh;
 }
-.details .recent-orders{
+.recent-orders{
     position: relative;
     background: var(--white);
     padding: 20px;
+    height: 85vh;
 }
 .card-header{
     display: flex;
@@ -355,31 +356,41 @@ body.dark .home .text{
     color: var(--white);
     border-radius: 6px;
 }
-.details table{
+table{
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
 }
-.details table thead td{
+.table-scroll{
+    position: relative;
+    height: 75vh;
+    padding: 0 10px;
+    overflow: auto;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.recent-orders table thead td{
     font-weight: 600;
     color: var(--text-color);
 }
-.details .recent-orders tr{
+.recent-orders tr{
     color: var(--text-color);
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-.details .recent-orders table tr:last-child{
+.recent-orders table tr:last-child{
     border-bottom: none;
 }
-.details .recent-orders table tbody tr:hover{
+.recent-orders table tbody tr:hover{
     background: var(--blue);
     color: var(--white);
     cursor: pointer;
 } 
-.details .recent-orders table tr td{
+.recent-orders table tr td{
     padding: 10px;
 }
-.details .recent-orders table tr td:last-child{
+.recent-orders table tr td:last-child{
     text-align: end;
 }
 
@@ -410,6 +421,7 @@ body.dark .home .text{
     font-weight: 600;
     color: var(--text-color);
 }
+
 
 /* responsive */
 @media (max-width: 991px){

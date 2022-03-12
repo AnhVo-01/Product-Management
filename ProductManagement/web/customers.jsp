@@ -121,34 +121,36 @@
                     <h2>Customer</h2>
                 </div>
                 <hr style="border: 0; height: 1px; background-color: #000;">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Phone</td>
-                            <td>City</td>
-                            <td>Address</td>
-                            <td>More</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${sessionScope.CusList}" var="c" varStatus="loop">
-                            <tr id="show-info">                      
-                                <td id="inN"><c:out value="${c.name}"/></td>
-                                <td id="inID" style="display: none;"><c:out value="${c.cusid}"/></td>
-                                <td id="inP"><c:out value="${c.phone}"/></td>
-                                <td id="inE" style="display: none;"><c:out value="${c.email}"/></td>
-                                <td id="inF" style="display: none;"><c:out value="${c.fax}"/></td>
-                                <td id="inZ" style="display: none;"><c:out value="${c.cusAddress.zipcode}"/></td>
-                                <td id="inC"><c:out value="${c.cusAddress.city}"/></td>
-                                <td id="inA"><address><c:out value="${c.cusAddress.street}"/></address></td>
-                                <td id="inR" style="display: none;"><c:out value="${c.cusAddress.country}"/></td>
-                                <td><i class="fa-solid fa-circle-info"></i></td>
-                            </tr>
+                <div class="table-scroll">
+                    <table>
+                        <thead>
                             <tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                                <td>Name</td>
+                                <td>Phone</td>
+                                <td>City</td>
+                                <td>Address</td>
+                                <td>More</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${sessionScope.CusList}" var="c" varStatus="loop">
+                                <tr id="show-info">                      
+                                    <td id="inN"><c:out value="${c.name}"/></td>
+                                    <td id="inID" style="display: none;"><c:out value="${c.cusid}"/></td>
+                                    <td id="inP"><c:out value="${c.phone}"/></td>
+                                    <td id="inE" style="display: none;"><c:out value="${c.email}"/></td>
+                                    <td id="inF" style="display: none;"><c:out value="${c.fax}"/></td>
+                                    <td id="inZ" style="display: none;"><c:out value="${c.cusAddress.zipcode}"/></td>
+                                    <td id="inC"><c:out value="${c.cusAddress.city}"/></td>
+                                    <td id="inA"><address><c:out value="${c.cusAddress.street}"/></address></td>
+                                    <td id="inR" style="display: none;"><c:out value="${c.cusAddress.country}"/></td>
+                                    <td><i class="fa-solid fa-circle-info"></i></td>
+                                </tr>
+                                <tr>
+                                </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- customer - info -->
