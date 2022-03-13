@@ -41,20 +41,20 @@
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
+                    
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="fa-solid fa-box fa-lg icon"></i>
+                            <span class="text nav-text">Product</span>
+                        </a>
+                    </li>
 
                     <li class="nav-link">
                         <a href="Customer">
                             <i class="fa-solid fa-user-group fa-lg icon"></i>
                             <span class="text nav-text">Customers</span>
                         </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="fa-solid fa-bell fa-lg icon"></i>
-                            <span class="text nav-text">Notifications</span>
-                        </a>
-                    </li>
+                    </li>                  
 
                     <li class="nav-link">
                         <a href="#">
