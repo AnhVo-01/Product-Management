@@ -19,7 +19,7 @@ public class CusDAO extends BaseDAO<Customers> {
     public ArrayList<Customers> getAll() {
         ArrayList<Customers> cus = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM [Customers]";
+            String sql = "SELECT * FROM [Customers] ORDER BY CustomerID DESC";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
