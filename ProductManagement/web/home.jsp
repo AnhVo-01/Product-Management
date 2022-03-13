@@ -1,5 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -239,39 +241,20 @@
                 <div class="card-header">
                     <h2>Recent Customers</h2>
                 </div>
+                <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+                    url="jdbc:sqlserver://localhost:1433;databaseName=PDM"  
+                    user="sa"  password="123456"/>
+        
+                <sql:query dataSource="${db}" var="rs">  
+                    SELECT TOP(8) * FROM [Customers] ORDER BY CustomerID DESC
+                </sql:query> 
                 <table>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>David<br><span>Italy</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Muhammad<br><span>India</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Amelia<br><span>France</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Olivia<br><span>USA</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Amit<br><span>Japan</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Ashraf<br><span>India</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Diana<br><span>Malaysia</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
-                        <td><h4>Amit<br><span>Japan</span></h4></td>
-                    </tr>
+                    <c:forEach var="result" items="${rs.rows}">
+                        <tr>
+                            <td width ="60px"><i class="fa-solid fa-circle-user fa-2xl imgBx"></i></td>
+                            <td><h4><c:out value="${result.Name}"/><br><span><c:out value="${result.Country}"/></span></h4></td>
+                        </tr>
+                    </c:forEach>  
                 </table>
             </div>
         </div>
