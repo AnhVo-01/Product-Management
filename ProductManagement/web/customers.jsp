@@ -62,7 +62,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="tracking.jsp">
                             <i class="fa-solid fa-truck fa-lg icon"></i>
                             <span class="text nav-text">Transport</span>
                         </a>
@@ -169,27 +169,27 @@
                     </tr>
                     <tr>
                         <td>Phone: </td>
-                        <td id="outP">numbers</td>
+                        <td id="outP">N/A</td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td id="outE">username@email.com</td>
+                        <td id="outE">N/A</td>
                     </tr>
                     <tr>
                         <td>Fax: </td>
-                        <td id="outF">(Empty)</td>
+                        <td id="outF">N/A</td>
                     </tr>
                     <tr>
                         <td>Zip Code: </td>
-                        <td id="outZ"> (zip code)</td>
+                        <td id="outZ">N/A</td>
                     </tr>
                     <tr>
                         <td>City: </td>
-                        <td id="outC">City Name</td>
+                        <td id="outC">N/A</td>
                     </tr>
                     <tr>
                         <td>Address: </td>
-                        <td><address id="outA">Street Address</address></td>
+                        <td><address id="outA">N/A</address></td>
                     </tr>
                     <tr>
                         <td>Country: </td>

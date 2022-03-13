@@ -62,8 +62,8 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class="fa-solid fa-truck-fast fa-lg icon"></i>
+                        <a href="tracking.jsp">
+                            <i class="fa-solid fa-truck fa-lg icon"></i>
                             <span class="text nav-text">Transport</span>
                         </a>
                     </li>
