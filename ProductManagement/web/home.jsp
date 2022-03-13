@@ -44,7 +44,7 @@
                     </li>
                     
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="product.jsp">
                             <i class="fa-solid fa-box fa-lg icon"></i>
                             <span class="text nav-text">Product</span>
                         </a>
