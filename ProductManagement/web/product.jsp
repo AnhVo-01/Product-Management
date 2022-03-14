@@ -12,7 +12,6 @@
     <script src="https://kit.fontawesome.com/a4edd5786f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <body>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
