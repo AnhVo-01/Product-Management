@@ -1,3 +1,4 @@
+<%@page import="controller.htmlPaging"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -120,68 +121,105 @@
                     </div>
                 </div>
                 <hr style="border: 0; height: 1px; background-color: #000;">
-                <table id="myTable">
-                    <thead>
-                        <tr>
-                            <td><span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span></td>
-                            <td>ProductID</td>
-                            <td>Name</td>
-                            <td>
-                                Color <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
-                                <select name="" class="select">
-                                    <option value="">All</option>
-                                    <option value="">Black</option>
-                                    <option value="">Blue</option>
-                                    <option value="">Grey</option>
-                                    <option value="">Red</option>
-                                    <option value="">Silver</option>
-                                    <option value="">Yellow</option>
-                                </select>
-                            </td>
-                            <td>Price</td>
-                            <td>
-                                Category <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
-                                <select name="" class="select">
-                                    <option value="">All</option>
-                                    <option value="">Bikes</option>
-                                    <option value="">Components</option>
-                                    <option value="">Accessories</option>
-                                </select>
-                            </td>
-                            <td>Model</td>
-                            <td>Status</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${sessionScope.ProductList}" var="p" varStatus="loop">
-                            <tr class="form">
+                <form action="ProductOrderBy" method="POST">
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <td><span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span></td>
                                 <td>
-                                    <span class="status">
-                                        <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
-                                    </span>
+                                    ProductID <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="oid" class="select">
+                                        <option value="default">option</option>
+                                        <option value="increase" <c:if test="${sessionScope.temp eq 'increase'}">selected</c:if>>A-Z</option>
+                                        <option value="decrease" <c:if test="${sessionScope.temp eq 'decrease'}">selected</c:if>>Z-A</option>                                    
+                                    </select>
                                 </td>
-                                <td id="inID"><c:out value="${p.productID}"/></td>
-                                <td id="inN"><c:out value="${p.name}"/></td>
-                                <td id="inCo"><c:out value="${p.color}"/></td>
-                                <td id="inP"><c:out value="${p.price}"/></td>
-                                <td id="inCa"><c:out value="${p.subName}"/></td>
-                                <td id="inM"><c:out value="${p.modelID}"/></td>
                                 <td>
-                                    <c:choose>
-                                        <c:when test="${a.status.isAdmin == true}">
-                                            <span id="edit-Btn" class="status dis"><i class="fa-solid fa-pen"></i></span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span id="edit-Btn" class="status sell"><i class="fa-solid fa-pen"></i></span>
-                                        </c:otherwise>
-                                    </c:choose>                                   
+                                    Name <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="" class="select">
+                                        <option value="">option</option>
+                                        <option value="">A-Z</option>
+                                        <option value="">Z-A</option>
+                                    </select>
+                                <td>
+                                    Color <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="" class="select">
+                                        <option value="">All</option>
+                                        <option value="">Black</option>
+                                        <option value="">Blue</option>
+                                        <option value="">Grey</option>
+                                        <option value="">Red</option>
+                                        <option value="">Silver</option>
+                                        <option value="">Yellow</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    Price <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="" class="select">
+                                        <option value="">option</option>
+                                        <option value="">A-Z</option>
+                                        <option value="">Z-A</option>
+                                    </select>
+                                <td>
+                                    Category <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="" class="select">
+                                        <option value="">All</option>
+                                        <option value="">Bikes</option>
+                                        <option value="">Components</option>
+                                        <option value="">Accessories</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    Model <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
+                                    <select name="" class="select">
+                                        <option value="">option</option>
+                                        <option value="">A-Z</option>
+                                        <option value="">Z-A</option>
+                                    </select>
+                                </td>
+                                <td>Status
+                                    <span class="accept"><input style="cursor: pointer;" type="submit" value="OK"></span>
                                 </td>
                             </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${sessionScope.PList}" var="p" varStatus="loop">
+                                <tr class="form">
+                                    <td>
+                                        <span class="status">
+                                            <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
+                                        </span>
+                                    </td>
+                                    <td id="inID"><c:out value="${p.productID}"/></td>
+                                    <td id="inN"><c:out value="${p.name}"/></td>
+                                    <td id="inCo"><c:out value="${p.color}"/></td>
+                                    <td id="inP"><c:out value="${p.price}"/></td>
+                                    <td id="inCa"><c:out value="${p.subName}"/></td>
+                                    <td id="inM"><c:out value="${p.modelID}"/></td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${a.status.isAdmin == true}">
+                                                <span id="edit-Btn" class="status dis"><i class="fa-solid fa-pen"></i></span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span id="edit-Btn" class="status sell"><i class="fa-solid fa-pen"></i></span>
+                                            </c:otherwise>
+                                        </c:choose>                                   
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </form>
             </div>
-
+            <%
+                Integer pageindex = (Integer) session.getAttribute("pageindex");
+                Integer totalpage = (Integer) session.getAttribute("totalpage");
+                Integer pagesize = (Integer) session.getAttribute("pagesize");
+            %>
+            <nav class="paging">
+                <%=htmlPaging.pager(pagesize, pageindex, totalpage)%> 
+            </nav>
             
             <div class="end">
                 <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
@@ -273,13 +311,16 @@
 
     <script>
         const filter = document.querySelectorAll(".opt-filter"),
-            showOpt = document.querySelectorAll(".select");
+            showOpt = document.querySelectorAll(".select"),
+            acceptBtn = document.querySelector(".accept");
 
         for (let i = 0; i < filter.length; i++){
             filter[i].onclick = () => {
                 if (showOpt[i].style.display === "block"){
                     showOpt[i].style.display = "none";
+                    acceptBtn.style.display = "none";
                 }else{
+                    acceptBtn.style.display = "block";
                     showOpt[i].style.display = "block";
                 }
             };

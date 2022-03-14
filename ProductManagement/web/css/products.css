@@ -527,4 +527,29 @@ body.dark .home .text{
 .select{
     display: none;
 }
+.accept{
+    display: none;
+}
+.paging{
+    font-family: tahoma;
+    text-align: center;
+}
+.paging a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+.paging_link{            
+    font-size: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: 5px;
+}
+.paging_label{
+    background: var(--sidebar-color);
+    color: #fff !important;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 0 5px;
+    margin: 5px;
+}
 /* ---------------------------------------------------------- */
