@@ -40,7 +40,7 @@ public class AccountDAO extends BaseDAO<Account>{
 
     public Account Login(String username, String password) {
         try {
-            String sql = "SELECT [Username], [Password], [DisplayName]\n" +
+            String sql = "SELECT [userName], [Password], [DisplayName]\n" +
                          "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class AccountDAO extends BaseDAO<Account>{
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Account a = new Account();
-                a.setUsername(rs.getString("Username"));
+                a.setUsername(rs.getString("userName"));
                 a.setPassword(rs.getString("Password"));
                 a.setDisplayname(rs.getString("DisplayName"));
                 return a;
@@ -86,9 +86,9 @@ public class AccountDAO extends BaseDAO<Account>{
         try {
             String sql = "INSERT INTO [Account] ([userID],\n" +
                                                 "[userName],\n" +
-                                                "[password],\n" +
-                                                "[displayName],\n" +
-                                                "[email],\n" +
+                                                "[Password],\n" +
+                                                "[DisplayName],\n" +
+                                                "[Email],\n" +
                                                 "[isMod],\n" +
                                                 "[isAdmin])\n" +
                                     "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -110,9 +110,9 @@ public class AccountDAO extends BaseDAO<Account>{
     public void updateAcc(String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
         try {
             String sql = "UPDATE [Account] SET [userName] = ?, \n" +
-                                            "[password] = ?,   \n" +
+                                            "[Password] = ?,   \n" +
                                             "[displayName] = ?,\n" +
-                                            "[email] = ?,      \n" +
+                                            "[DisplayName] = ?,      \n" +
                                             "[isMod] = ?,      \n" +
                                             "[isAdmin] = ?     \n" +
                             "WHERE [userID] = ?;";
