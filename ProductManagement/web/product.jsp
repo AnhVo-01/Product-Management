@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -152,23 +153,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="form">
-                            <td>
-                                <span class="status">
-                                    <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
-                                </span>
-                            </td>
-                            <td id="inID">680</td>
-                            <td id="inN">HL Road Frame - Black, 58</td>
-                            <td id="inCo">Black</td>
-                            <td id="inP">1431.50</td>
-                            <td id="inCa">Components</td>
-                            <td id="inM">6</td>
-                            <td>
-                                <span id="edit-Btn" class="status sell"><i class="fa-solid fa-pen"></i></span>
-                            </td>
-                        </tr>
-                        </tr>
+                        <c:forEach items="${sessionScope.ProductList}" var="p" varStatus="loop">
+                            <tr class="form">
+                                <td>
+                                    <span class="status">
+                                        <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
+                                    </span>
+                                </td>
+                                <td id="inID"><c:out value="${p.productID}"/></td>
+                                <td id="inN"><c:out value="${p.name}"/></td>
+                                <td id="inCo"><c:out value="${p.color}"/></td>
+                                <td id="inP"><c:out value="${p.price}"/></td>
+                                <td id="inCa"><c:out value="${p.subName}"/></td>
+                                <td id="inM"><c:out value="${p.modelID}"/></td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${a.status.isAdmin == true}">
+                                            <span id="edit-Btn" class="status dis"><i class="fa-solid fa-pen"></i></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span id="edit-Btn" class="status sell"><i class="fa-solid fa-pen"></i></span>
+                                        </c:otherwise>
+                                    </c:choose>                                   
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
