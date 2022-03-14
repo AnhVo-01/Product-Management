@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Product;
 
 /**
@@ -18,35 +19,37 @@ public class ProductList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDAO db = new ProductDAO();
-        ArrayList<Product> plist = db.getAll();
+        String orderBy = "ProductID";
+        
+        String page = request.getParameter("page");
+        if (page == null || page.length() == 0) {
+            page = "1";
+        }
+        int pageindex = Integer.parseInt(page);
+        int pagesize = 19;
+        int totalrow = db.countP();
+        int totalpage = (totalrow % pagesize == 0) ? totalrow / pagesize : totalrow / pagesize + 1;
+        
+        ArrayList<Product> plist = db.paging(orderBy, pageindex, pagesize);
+        HttpSession session = request.getSession();
+        
+        session.setAttribute("totalpage", totalpage);
+        session.setAttribute("pageindex", pageindex);
+        session.setAttribute("pagesize", pagesize);
        
-        request.getSession().setAttribute("ProductList", plist);
+        session.setAttribute("PList", plist);
         request.getRequestDispatcher("product.jsp").forward(request, response);
+        
+        session.invalidate();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
