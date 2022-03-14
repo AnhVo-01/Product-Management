@@ -327,5 +327,4 @@
     </script>
     <script src="js/navController.js"></script>
 </body>
-</body>
 </html>
