@@ -40,7 +40,7 @@ public class AccountDAO extends BaseDAO<Account>{
 
     public Account Login(String username, String password) {
         try {
-            String sql = "SELECT [userName], [Password], [DisplayName]\n" +
+            String sql = "SELECT [userName], [Password], [DisplayName], [isMod], [isAdmin]\n" +
                          "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -52,6 +52,7 @@ public class AccountDAO extends BaseDAO<Account>{
                 a.setUsername(rs.getString("userName"));
                 a.setPassword(rs.getString("Password"));
                 a.setDisplayname(rs.getString("DisplayName"));
+                a.setStatus(new Status(rs.getBoolean("isMod"),rs.getBoolean("isAdmin")));
                 return a;
             }
         } catch (SQLException ex) {
@@ -111,8 +112,8 @@ public class AccountDAO extends BaseDAO<Account>{
         try {
             String sql = "UPDATE [Account] SET [userName] = ?, \n" +
                                             "[Password] = ?,   \n" +
-                                            "[displayName] = ?,\n" +
-                                            "[DisplayName] = ?,      \n" +
+                                            "[DisplayName] = ?,\n" +
+                                            "[Email] = ?,      \n" +
                                             "[isMod] = ?,      \n" +
                                             "[isAdmin] = ?     \n" +
                             "WHERE [userID] = ?;";

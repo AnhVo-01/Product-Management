@@ -76,12 +76,21 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="AccountList">
+                        <c:set var="linkToRedirect">
+                            <c:choose>
+                                <c:when test="${sessionScope.user.status.isAdmin == true}">
+                                    AccountList
+                                </c:when>
+                                <c:otherwise>
+                                    WarningAcc.html
+                                </c:otherwise>
+                            </c:choose>
+                        </c:set>
+                        <a href="${linkToRedirect}">
                             <i class="fa-solid fa-lock fa-lg icon"></i>
                             <span class="text nav-text">Accounts</span>
                         </a>
                     </li>
-
                 </ul>
             </div>
 

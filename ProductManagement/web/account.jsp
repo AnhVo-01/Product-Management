@@ -257,8 +257,8 @@
                     </div>
                     <div class="options">
                         <h3>Status</h3>
-                        <input type="checkbox" name="eMod" value="true" <c:if test="${sessionScope.isMod}"> checked</c:if>> isMod
-                        <input type="checkbox" name="eAdmin" value="true"> isAdmin
+                        <input type="radio" name="eMod" value="true"> isMod
+                        <input type="radio" name="eAdmin" value="true"> isAdmin
                     </div>
                 </div>
 

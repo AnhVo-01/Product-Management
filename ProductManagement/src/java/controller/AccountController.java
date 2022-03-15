@@ -65,15 +65,21 @@ public class AccountController extends HttpServlet {
         String Status = request.getParameter("status");
         
         String Mod = "", Admin = "";
-        if(Status.equals("isMod")){
-            Mod = "true";
-            Admin = "false";
-        }else if(Status.equals("isAdmin")){
-            Mod = "false";
-            Admin = "true";
-        }else if(Status.equals("isUser")){
-            Mod = "false";
-            Admin = "false";
+        switch (Status) {
+            case "isMod":
+                Mod = "true";
+                Admin = "false";
+                break;
+            case "isAdmin":
+                Mod = "false";
+                Admin = "true";
+                break;
+            case "isUser":
+                Mod = "false";
+                Admin = "false";
+                break;
+            default:
+                break;
         }
 
         // add the student to the database

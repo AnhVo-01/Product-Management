@@ -81,10 +81,20 @@ body{
     padding: 10px;
 }
 .back{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 10px;
+}
+.back p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.back a{
     cursor: pointer;
     color: var(--text-color);
 }
-.back:hover{
+.back a:hover{
     color: var(--div-color);
 }
 .container{

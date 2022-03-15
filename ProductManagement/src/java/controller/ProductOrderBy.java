@@ -43,17 +43,17 @@ public class ProductOrderBy extends HttpServlet {
         int totalpage = (totalrow % pagesize == 0) ? totalrow / pagesize : totalrow / pagesize + 1;
         
         ArrayList<Product> plist = db.paging(sb.toString(), pageindex, pagesize);
-        HttpSession session1 = request.getSession();
+        HttpSession session = request.getSession();
         
-        session1.setAttribute("totalpage", totalpage);
-        session1.setAttribute("pageindex", pageindex);
-        session1.setAttribute("pagesize", pagesize);
+        session.setAttribute("totalpage", totalpage);
+        session.setAttribute("pageindex", pageindex);
+        session.setAttribute("pagesize", pagesize);
        
-        session1.setAttribute("temp", oID);
-        session1.setAttribute("PList", plist);
+        session.setAttribute("temp", oID);
+        session.setAttribute("PList", plist);
         request.getRequestDispatcher("product.jsp").forward(request, response);
         
-        session1.invalidate();
+        session.removeAttribute("PList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
