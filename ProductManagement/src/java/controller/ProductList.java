@@ -26,7 +26,7 @@ public class ProductList extends HttpServlet {
             page = "1";
         }
         int pageindex = Integer.parseInt(page);
-        int pagesize = 19;
+        int pagesize = 20;
         int totalrow = db.countP();
         int totalpage = (totalrow % pagesize == 0) ? totalrow / pagesize : totalrow / pagesize + 1;
         
@@ -40,7 +40,7 @@ public class ProductList extends HttpServlet {
         session.setAttribute("PList", plist);
         request.getRequestDispatcher("product.jsp").forward(request, response);
         
-        session.invalidate();
+        session.removeAttribute("PList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
