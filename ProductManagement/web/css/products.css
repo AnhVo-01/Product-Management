@@ -382,6 +382,9 @@ body.dark .home .text{
     background: #f00;
     color: var(--white);
 }
+.status_add{
+    background: #1795ce; 
+}
 .details table{
     width: 100%;
     border-collapse: collapse;
