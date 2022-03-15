@@ -82,7 +82,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="#">
+                    <a href="LogoutServlet">
                         <i style="transform: rotate(180deg);" class="fa-solid fa-right-from-bracket fa-2xl icon"></i>
                         <span class="text nav-text">Logout</span>
                     </a>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <hr style="border: 0; height: 1px; background-color: #000;">
-                <form action="ProductOrderBy" method="POST">
+                <form action="ProductOrderBy" method="GET">
                     <table id="myTable">
                         <thead>
                             <tr>
@@ -128,9 +128,9 @@
                                 <td>
                                     ProductID <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
                                     <select name="oid" class="select">
-                                        <option value="default">option</option>
-                                        <option value="increase" <c:if test="${sessionScope.temp eq 'increase'}">selected</c:if>>A-Z</option>
-                                        <option value="decrease" <c:if test="${sessionScope.temp eq 'decrease'}">selected</c:if>>Z-A</option>                                    
+                                        <option>option</option>
+                                        <option <c:if test="${sessionScope.temp eq 'A-Z'}">selected</c:if>>A-Z</option>
+                                        <option <c:if test="${sessionScope.temp eq 'Z-A'}">selected</c:if>>Z-A</option>                                    
                                     </select>
                                 </td>
                                 <td>

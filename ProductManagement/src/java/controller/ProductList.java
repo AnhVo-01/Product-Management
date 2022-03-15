@@ -19,7 +19,12 @@ public class ProductList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ProductDAO db = new ProductDAO();
-        String orderBy = "ProductID";
+        HttpSession session = request.getSession();
+
+        String orderBy = (String) session.getAttribute("orderBy");
+        if(orderBy == null || orderBy.isEmpty()){
+            orderBy = "ProductID";
+        }    
         
         String page = request.getParameter("page");
         if (page == null || page.length() == 0) {
@@ -31,7 +36,6 @@ public class ProductList extends HttpServlet {
         int totalpage = (totalrow % pagesize == 0) ? totalrow / pagesize : totalrow / pagesize + 1;
         
         ArrayList<Product> plist = db.paging(orderBy, pageindex, pagesize);
-        HttpSession session = request.getSession();
         
         session.setAttribute("totalpage", totalpage);
         session.setAttribute("pageindex", pageindex);
@@ -40,7 +44,7 @@ public class ProductList extends HttpServlet {
         session.setAttribute("PList", plist);
         request.getRequestDispatcher("product.jsp").forward(request, response);
         
-        session.removeAttribute("PList");
+//        session.removeAttribute("PList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
