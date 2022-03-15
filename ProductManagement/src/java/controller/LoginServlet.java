@@ -49,8 +49,12 @@ public class LoginServlet extends HttpServlet {
             }
             HttpSession session = request.getSession();
             session.setAttribute("user", account);
-
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            
+            if(!account.getStatus().isIsAdmin() && !account.getStatus().isIsMod()){
+                request.getRequestDispatcher("userpage.jsp").forward(request, response);
+            }else{
+                request.getRequestDispatcher("home.jsp").forward(request, response);
+            }
             
         } else { //login fail
             request.setAttribute("mess", "username/password is invalid");
