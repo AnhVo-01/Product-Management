@@ -117,10 +117,7 @@
                         <h3>Profile</h3>
                         <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
                     </div>
-                    <hr style="border: 0;
-                        height: 1px;
-                        background: #ccc;
-                        margin: 10px 0;">
+                    <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                     <div class="post-input-container">
                         <div>
                             <h5>Name</h5>
@@ -156,22 +153,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="write-post-container">
-                    <div class="profile">
-                        <h3>Account</h3>
-                        <hr>
-                    </div>
-                    <div class="post-input-container">
-                        <div>
-                            <h5>Display Name</h5>
-                            <input type="text" name="" value="Admin">
+                
+                <form action="UserController" method="GET">
+                    <div class="write-post-container">
+                        <div class="profile">
+                            <h3>Account</h3>
+                            <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
+                        </div
+                        <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
+                        <div class="post-input-container">
+                            <div>
+                                <h5>Display Name</h5>
+                                <input type="text" name="display" value="${sessionScope.user.displayname}">
+                            </div>
+                            <div>
+                                <h5>Password</h5>
+                                <input type="password" name="userP" value="${sessionScope.user.password}">
+                            </div>
                         </div>
-                        <div>
-                            <h5>Password</h5>
-                            <input type="password" name="" value="anhvo.1305@gmail.com">
-                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
