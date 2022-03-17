@@ -40,6 +40,10 @@
         <servlet-name>ProductOrderBy</servlet-name>
         <servlet-class>controller.ProductOrderBy</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>controller.UserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>ProductOrderBy</servlet-name>
         <url-pattern>/ProductOrderBy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
