@@ -85,7 +85,6 @@ public class AccountController extends HttpServlet {
                 break;
         }
 
-        // add the student to the database
         AccountDAO db = new AccountDAO();
         db.createAccount("U"+ID(), Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));
         response.sendRedirect("AccountList");
