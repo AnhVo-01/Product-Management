@@ -71,7 +71,14 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="AccountList">
+                        <a <c:choose>
+                                <c:when test="${sessionScope.user.status.isAdmin == true}">
+                                    href="AccountList"
+                                </c:when>
+                                <c:otherwise>
+                                    href="WarningAcc.html"
+                                </c:otherwise>
+                            </c:choose>>
                             <i class="fa-solid fa-lock fa-lg icon"></i>
                             <span class="text nav-text">Accounts</span>
                         </a>

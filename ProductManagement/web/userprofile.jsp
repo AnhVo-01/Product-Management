@@ -103,11 +103,11 @@
                     <h3>Info</h3>
                     <hr>
                     <ul>
-                        <li><i class="fa-solid fa-phone fa-1x icon"></i> Director at 99media Ltd</li>
-                        <li><i class="fa-solid fa-envelope fa-1x icon"></i> Studied at FPT University</li>
-                        <li><i class="fa-solid fa-fax icon"></i> Went to DPS Delhi</li>
-                        <li><i class="fa-solid fa-city fa-1x icon"></i> Lives in Bangalore, India</li>
-                        <li><i class="fa-solid fa-location-dot fa-1x icon"></i> From Bangalore, India</li>
+                        <li><i class="fa-solid fa-phone fa-1x icon"></i> N/A</li>
+                        <li><i class="fa-solid fa-envelope fa-1x icon"></i> N/A</li>
+                        <li><i class="fa-solid fa-fax icon"></i> N/A</li>
+                        <li><i class="fa-solid fa-city fa-1x icon"></i> N/A</li>
+                        <li><i class="fa-solid fa-location-dot fa-1x icon"></i> N/A</li>
                     </ul>
                 </div>
             </div>

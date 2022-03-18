@@ -25,11 +25,11 @@ public class AccountDAO extends BaseDAO<Account>{
             while (rs.next()) {
                 Account a = new Account();
                 a.setId(rs.getString(1));
-                a.setUsername(rs.getString(2));
-                a.setPassword(rs.getString(3));
-                a.setDisplayname(rs.getString(4));
-                a.setEmail(rs.getString(5));
-                a.setStatus(new Status(rs.getBoolean(6),rs.getBoolean(7)));
+                a.setUsername(rs.getString(3));
+                a.setPassword(rs.getString(4));
+                a.setDisplayname(rs.getString(5));
+                a.setEmail(rs.getString(6));
+                a.setStatus(new Status(rs.getBoolean(7),rs.getBoolean(8)));
                 acc.add(a);
             }
         } catch (SQLException ex) {
@@ -40,7 +40,7 @@ public class AccountDAO extends BaseDAO<Account>{
 
     public Account Login(String username, String password) {
         try {
-            String sql = "SELECT [userName], [Password], [DisplayName], [isMod], [isAdmin]\n" +
+            String sql = "SELECT [userID], [userName], [Password], [DisplayName], [isMod], [isAdmin]\n" +
                          "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -49,6 +49,7 @@ public class AccountDAO extends BaseDAO<Account>{
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Account a = new Account();
+                a.setId(rs.getString("userID"));
                 a.setUsername(rs.getString("userName"));
                 a.setPassword(rs.getString("Password"));
                 a.setDisplayname(rs.getString("DisplayName"));
@@ -70,11 +71,11 @@ public class AccountDAO extends BaseDAO<Account>{
             if (rs.next()) {
                 Account a = new Account();
                 a.setId(rs.getString(1));
-                a.setUsername(rs.getString(2));
-                a.setPassword(rs.getString(3));
-                a.setDisplayname(rs.getString(4));
-                a.setEmail(rs.getString(5));
-                a.setStatus(new Status(rs.getBoolean(6),rs.getBoolean(7)));
+                a.setUsername(rs.getString(3));
+                a.setPassword(rs.getString(4));
+                a.setDisplayname(rs.getString(5));
+                a.setEmail(rs.getString(6));
+                a.setStatus(new Status(rs.getBoolean(7),rs.getBoolean(8)));
                 return a;
             }
         } catch (SQLException ex) {
