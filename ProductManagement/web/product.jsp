@@ -131,7 +131,9 @@
                     <table id="myTable">
                         <thead>
                             <tr>
-                                <td><span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span></td>
+                                <td <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
+                                    <span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span>
+                                </td>
                                 <td>
                                     ProductID <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
                                     <select name="oid" class="select">
@@ -191,7 +193,7 @@
                         <tbody>
                             <c:forEach items="${sessionScope.PList}" var="p" varStatus="loop">
                                 <tr class="form">
-                                    <td>
+                                    <td <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
                                         <span class="status">
                                             <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
                                         </span>
@@ -204,7 +206,7 @@
                                     <td id="inM"><c:out value="${p.modelID}"/></td>
                                     <td>
                                         <c:choose>
-                                            <c:when test="${a.status.isAdmin == true}">
+                                            <c:when test="${p.discontinued == true}">
                                                 <span id="edit-Btn" class="status dis"><i class="fa-solid fa-pen"></i></span>
                                             </c:when>
                                             <c:otherwise>
