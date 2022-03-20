@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+/* ---------------------------------------------------------- */
+:root {
+    --body-color: #efefef;
+    --bs-color: #efefef;
+    --div-color: #fff;
+    --bg-color: #1876f2;
+    --text-color: #000;
+}
+
+.dark-theme {
+    --body-color: #313335;
+    --bs-color: #242526;
+    --div-color: #0a0a0a;
+    --bg-color: #242526;
+    --text-color: #ecf3ff;
+}
+
+body{
+    background: var(--body-color);
+}
+
+/* ----- Mobile View --------------------------------------------- */
+@media (min-width: 576px){
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px){
+    .container {
+        max-width: 720px;
+    }
+    .column {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+@media (min-width: 992px){
+    .container {
+        max-width: 960px;
+    }
+    .column {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+}
+@media (min-width: 1200px){
+    .container {
+        max-width: 1140px;
+    }
+}
+@media (min-width: 1400px){
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* ----- Lager View ----------------------------------------------------- */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px 10px 30px;
+    height: 10vh;
+    background: var(--bg-color);
+}
+.header h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 6vmin;
+}
+.header h1 a{
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px;
+}
+.back{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 10px;
+}
+.back p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.back a{
+    cursor: pointer;
+    color: var(--text-color);
+}
+.back a:hover{
+    color: var(--div-color);
+}
+.product { 
+    grid-area: item1; 
+    max-width: 100%;}
+.feedback { grid-area: item2; }
+.warehouse {
+    grid-area: item3;
+    max-width: 100%;
+}
+.container{
+    display: grid;
+    grid-template-areas:
+    'item1 item1 item1 item3 item3 item3'
+    'item2 item2 item2 item2 item2 item2';
+    gap: 20px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    min-height: 90vh;
+    padding: 20px 0;
+}
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+form h2{
+    color: #555;
+    font-weight: 800;
+    text-align: center;
+}
+.icon {
+    margin-right: 20px;
+}
+.button {
+    background: #1876f2;
+    border: 0;
+    outline: 0;
+    padding: 6px 20px 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    border-radius: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button:hover{
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+.details h5{
+    margin-left: 10px;
+}
+.details input {
+    margin-top: 5px;
+    border: none;
+    background: #f2f2f2;
+    padding: 6px 10px;
+    border-radius: 3px;
+    width: 200px;
+}
+
+.remove:hover{
+    color: #f00;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table thead td{
+    font-weight: 600;
+}
+table tr{
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+table tr:last-child{
+    border-bottom: none;
+}
+table tr th{
+    padding-left: 10px;
+    text-align: start;
+}
+.feedback table tr th:nth-child(4){
+    text-align: center;
+}
+table tbody tr:hover{
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.1);
+} 
+table tr td{
+    padding: 10px;
+}
+table tr td:last-child{
+    text-align: start;
+}
+
+.footer {
+    display: flex;
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px 0px;
+    font-size: 14px;
+    justify-content: center;
+    height: 8vh;
+    align-items: center;
+}

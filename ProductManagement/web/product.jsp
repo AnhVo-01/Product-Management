@@ -334,6 +334,14 @@
             };
         };
     </script>
+    <script>
+        var btn = document.querySelectorAll("#edit-Btn");
+        for (let i = 0; i<btn.length; i++){
+            btn[i].onclick = function() {
+                window.location.href = 'PDdetails.jsp';
+            };
+        }
+    </script>
     <script src="js/navController.js"></script>
 </body>
 </html>

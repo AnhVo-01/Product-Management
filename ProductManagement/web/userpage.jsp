@@ -45,7 +45,7 @@
                 <img src="img/feedback.png">
                 <div>
                     <p>Give Feedback</p>
-                    <a href="#">Help us to improve the new design</a>
+                    <a href="#">Help us to bring the best experience</a>
                 </div>
             </div>
             <hr>
