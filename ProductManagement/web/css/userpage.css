@@ -268,10 +268,10 @@ header {
     text-align: end;
 }
 .details .recent-orders table tr td:nth-child(2){
-    text-align: end;
+    text-align: center;
 }
 .details .recent-orders table tr td:nth-child(3){
-    text-align: center;
+    text-align: start;
 }
 
 .status{

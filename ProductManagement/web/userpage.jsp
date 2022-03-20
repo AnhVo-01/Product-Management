@@ -85,43 +85,27 @@
                 <div class="card-box recent-orders">
                     <div class="card-header">
                         <h2><i class="fa-solid fa-cart-shopping"></i> My Order</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="#" class="btn">View Details</a>
                     </div>
                     <hr style="border: 0; height: 1px; background-color: #000;">
                     <table>
                         <thead>
                             <tr>
                                 <td>Name</td>
+                                <td>Quantity</td>
                                 <td>Price</td>
-                                <td>Payment</td>
+                                <td>Freight</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Star Refrigerator</td>
+                                <td>Star Refrigerator <br><small style="color: #1795ce;">Color: red</small></td>
+                                <td>1</td>
                                 <td>$1200</td>
-                                <td>Paid</td>
+                                <td>DMS</td>
                                 <td><span class="status-delivered">Delivered</span></td>
-                            </tr>
-                            <tr>
-                                <td>Window Coolers</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status-pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>Speakers</td>
-                                <td>$620</td>
-                                <td>Paid</td>
-                                <td><span class="status-return">Return</span></td>
-                            </tr>
-                            <tr>
-                                <td>HP Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status-inprogress">In Progress</span></td>
-                            </tr>
+                            </tr>                      
                         </tbody>
                     </table>
                 </div>
