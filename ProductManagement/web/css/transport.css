@@ -340,10 +340,6 @@ body.dark .home .text{
 .card-header img{
     width: 50px;
 }
-a{
-    color: #287bff;
-    font-style: italic;
-}
 .card-header h2{
     font-weight: 600;
     color: var(--blue);
@@ -368,6 +364,10 @@ table{
     position: relative;
     background: var(--white);
     padding: 20px;
+}
+.recent-cus a{
+    color: #287bff;
+    font-style: italic;
 }
 .recent-cus table tr td img{
     width: 50px;
@@ -394,7 +394,6 @@ table{
     font-weight: 600;
     color: var(--text-color);
 }
-
 
 /* responsive */
 @media (max-width: 991px){

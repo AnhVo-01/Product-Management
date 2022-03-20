@@ -58,7 +58,7 @@
                         </li>
 
                         <li class="nav-link">
-                            <a href="tracking.jsp">
+                            <a href="transport.jsp">
                                 <i class="fa-solid fa-truck fa-lg icon"></i>
                                 <span class="text nav-text">Transport</span>
                             </a>
