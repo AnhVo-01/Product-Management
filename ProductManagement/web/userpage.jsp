@@ -136,29 +136,29 @@
                         <tr>
                             <td width ="60px"><i class="fa-solid fa-circle-user fa-3x imgBx"></i></td>
                             <td>
-                                <h4 id="outN">Customer Name</h4>
-                                <span id="outID">ID</span>
+                                <h4 id="outN">${sessionScope.cus.name}</h4>
+                                <span id="outID">ID: ${sessionScope.cus.cusid}</span>
                             </td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-phone fa-1x"></i></td>
-                            <td>numbers</td>
+                            <td>${sessionScope.cus.phone}</td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-envelope fa-1x"></i></td>
-                            <td>username@email.com</td>
+                            <td>${sessionScope.cus.email}</td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-fax"></i></td>
-                            <td>(Empty)</td>
+                            <td>${sessionScope.cus.fax}</td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-city fa-1x"></i></td>
-                            <td>City Name</td>
+                            <td>${sessionScope.cus.cusAddress.city}</td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-location-dot fa-1x"></i></td>
-                            <td><address>Street Address</address></td>
+                            <td><address>${sessionScope.cus.cusAddress.street}</address></td>
                         </tr>
                     </table>
                 </div>

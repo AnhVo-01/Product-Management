@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", account);
             
             if(!account.getStatus().isIsAdmin() && !account.getStatus().isIsMod()){
-                request.getRequestDispatcher("userpage.jsp").forward(request, response);
+                request.getRequestDispatcher("ProfileList").forward(request, response);
             }else{
                 request.getRequestDispatcher("home.jsp").forward(request, response);
             }

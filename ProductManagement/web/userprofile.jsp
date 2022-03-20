@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,65 +104,87 @@
                     <h3>Info</h3>
                     <hr>
                     <ul>
-                        <li><i class="fa-solid fa-phone fa-1x icon"></i> N/A</li>
-                        <li><i class="fa-solid fa-envelope fa-1x icon"></i> N/A</li>
-                        <li><i class="fa-solid fa-fax icon"></i> N/A</li>
-                        <li><i class="fa-solid fa-city fa-1x icon"></i> N/A</li>
-                        <li><i class="fa-solid fa-location-dot fa-1x icon"></i> N/A</li>
+                        <li><i class="fa-solid fa-phone fa-1x icon"></i>${sessionScope.cus.phone}</li>
+                        <li><i class="fa-solid fa-envelope fa-1x icon"></i>${sessionScope.cus.email}</li>
+                        <li><i class="fa-solid fa-fax icon"></i>${sessionScope.cus.fax}</li>
+                        <li><i class="fa-solid fa-city fa-1x icon"></i>${sessionScope.cus.cusAddress.city}</li>
+                        <li><i class="fa-solid fa-location-dot fa-1x icon"></i>${sessionScope.cus.cusAddress.street}</li>
                     </ul>
                 </div>
             </div>
             <div class="post-col">
-                <div class="write-post-container">
-                    <div class="profile">
-                        <h3>Profile</h3>
-                        <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
+                <form action="UserController" method="POST">
+                    <div class="write-post-container">
+                        <div class="profile">
+                            <h3>Profile</h3>
+                            <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
+                        </div>
+                        <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
+                        <div class="post-input-container">
+                            <div style="display: none;">
+                                <input type="text" name="cid" value="${sessionScope.cus.cusid}">
+                            </div>
+                            <div>
+                                <h5>Name</h5>
+                                <input type="text" name="cname" value="${sessionScope.cus.name}">
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <input type="text" name="cphone" value="${sessionScope.cus.phone}">
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <input type="text" name="cmail" value="${sessionScope.cus.email}">
+                            </div>
+                            <div>
+                                <h5>Fax</h5>
+                                <input type="text" name="cfax"
+                                       <c:choose>
+                                           <c:when test="${not empty sessionScope.cus.fax}">
+                                               value="${sessionScope.cus.fax}"
+                                           </c:when>
+                                           <c:otherwise>
+                                               value="N/A"
+                                           </c:otherwise>
+                                       </c:choose>>
+                            </div>
+                            <div>
+                                <h5>zip code</h5>
+                                <input type="text" name="zip" value="${sessionScope.cus.cusAddress.zipcode}">
+                            </div>
+                            <div>
+                                <h5>City</h5>
+                                <input type="text" name="city" value="${sessionScope.cus.cusAddress.city}">
+                            </div>
+                            <div>
+                                <h5>Address</h5>
+                                <input type="text" name="adds" value="${sessionScope.cus.cusAddress.street}" style="width: 300px;">
+                            </div>
+                            <div>
+                                <h5>Country</h5>
+                                <input type="text" name="country" value="${sessionScope.cus.cusAddress.country}">
+                            </div>
+                        </div>
                     </div>
-                    <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
-                    <div class="post-input-container">
-                        <div>
-                            <h5>Name</h5>
-                            <input type="text" name="" value="Admin">
-                        </div>
-                        <div>
-                            <h5>Phone</h5>
-                            <input type="text" name="" value="0969127592">
-                        </div>
-                        <div>
-                            <h5>Email</h5>
-                            <input type="text" name="" value="anhvo.1305@gmail.com">
-                        </div>
-                        <div>
-                            <h5>Fax</h5>
-                            <input type="text" name="" value="N/A">
-                        </div>
-                        <div>
-                            <h5>zip code</h5>
-                            <input type="text" name="">
-                        </div>
-                        <div>
-                            <h5>City</h5>
-                            <input type="text" name="" value="Hanoi">
-                        </div>
-                        <div>
-                            <h5>Address</h5>
-                            <textarea name="" id="" cols="50" rows="3"></textarea>
-                        </div>
-                        <div>
-                            <h5>Country</h5>
-                            <input type="text" name="" value="VietNam">
-                        </div>
-                    </div>
-                </div>
+                </form>
                 
                 <form action="UserController" method="GET">
                     <div class="write-post-container">
                         <div class="profile">
                             <h3>Account</h3>
                             <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
-                        </div
+                        </div>
                         <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                         <div class="post-input-container">
+                            <div style="display: none;">
+                                <input type="text" name="sid" value="${sessionScope.user.id}">
+                            </div>
+                            <div style="display: none;">
+                                <input type="text" name="userN" value="${sessionScope.user.username}">
+                            </div>
+                            <div style="display: none;">
+                                <input type="email" name="email" value="${sessionScope.user.email}">
+                            </div>
                             <div>
                                 <h5>Display Name</h5>
                                 <input type="text" name="display" value="${sessionScope.user.displayname}">
