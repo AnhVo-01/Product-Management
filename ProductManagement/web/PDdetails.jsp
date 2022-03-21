@@ -26,8 +26,7 @@
                 </div>
                 <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                 <div class="details">
-                    <div>
-                        <h5>ID</h5>
+                    <div style="display: none;">
                         <input type="text" name="" value="${PDD.productID}">
                     </div>
                     <div>
@@ -47,14 +46,14 @@
                         <input type="text" name="" value="${PDD.subName}">
                     </div>
                     <div>
-                        <h5>Model</h5>
-                        <input type="text" name="" value="${PDD.modelID}">
+                        <h5>Discontinued</h5>
+                        <input style="width: 50px" type="radio" name="Discon" value="true">Yes
+                        <br>
+                        <input style="width: 50px" type="radio" name="Discon" value="false">No
                     </div>
                     <div>
-                        <h5>Discontinued</h5>
-                        <input style="width: 50px" type="radio" name="Discon" value="true">True
-                        <br>
-                        <input style="width: 50px" type="radio" name="Discon" value="false">False
+                        <h5>Model</h5>
+                        <input type="text" name="" value="${PDD.modelID}">
                     </div>
                 </div>
             </form>

@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="nav-left">
-            <h1>${sessionScope.user.displayname}</h1>
+            <h1 id="get-title">${sessionScope.user.displayname}</h1>
             <ul>
                 <li><i class="fa-solid fa-bell fa-lg"></i></li>
             </ul>
@@ -130,7 +130,7 @@
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-envelope fa-1x"></i></td>
-                            <td>${sessionScope.cus.email}</td>
+                            <td>${sessionScope.user.email}</td>
                         </tr>
                         <tr>
                             <td><i class="fa-solid fa-fax"></i></td>

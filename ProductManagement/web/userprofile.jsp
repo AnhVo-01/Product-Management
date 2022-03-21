@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile page - Socialbook</title>
+    <title></title>
     <link rel="stylesheet" href="css/userpage.css">
     <script src="js/Jquery.js"></script>
 </head>
@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="nav-left">
-            <h1>${sessionScope.user.displayname}</h1>
+            <h1 id="get-title">${sessionScope.user.displayname}</h1>
             <ul>
                 <li><i class="fa-solid fa-bell fa-lg"></i></li>
             </ul>
@@ -113,7 +113,15 @@
                 </div>
             </div>
             <div class="post-col">
-                <form action="UserController" method="POST">
+                <form action="UserController"
+                    <c:choose>
+                        <c:when test="${not empty sessionScope.cus.name}">
+                            method="POST"
+                        </c:when>
+                        <c:otherwise>
+                            method="GET"
+                        </c:otherwise>
+                    </c:choose>>
                     <div class="write-post-container">
                         <div class="profile">
                             <h3>Profile</h3>
@@ -122,7 +130,7 @@
                         <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                         <div class="post-input-container">
                             <div style="display: none;">
-                                <input type="text" name="cid" value="${sessionScope.cus.cusid}">
+                                <input type="text" name="cid" value="${sessionScope.user.cusid}">
                             </div>
                             <div>
                                 <h5>Name</h5>
@@ -134,7 +142,7 @@
                             </div>
                             <div>
                                 <h5>Email</h5>
-                                <input type="text" name="cmail" value="${sessionScope.cus.email}">
+                                <input type="text" name="cmail" value="${sessionScope.user.email}">
                             </div>
                             <div>
                                 <h5>Fax</h5>
@@ -168,7 +176,7 @@
                     </div>
                 </form>
                 
-                <form action="UserController" method="GET">
+                <form action="userAcc" method="GET">
                     <div class="write-post-container">
                         <div class="profile">
                             <h3>Account</h3>
@@ -203,6 +211,10 @@
     <footer>
         <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
     </footer>
+    <script>
+        var titl = document.getElementById("get-title").textContent;
+        document.title = "Profile | " + titl;
+    </script>
     <script src="js/userpage.js"></script>
 </body>
 </html>

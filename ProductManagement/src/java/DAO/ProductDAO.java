@@ -118,6 +118,32 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return product;
     }
+     
+    public void updateAcc(String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
+        try {
+            String sql = "UPDATE [Account] SET [userName] = ?, \n" +
+                                            "[Password] = ?,   \n" +
+                                            "[DisplayName] = ?,\n" +
+                                            "[Email] = ?,      \n" +
+                                            "[isMod] = ?,      \n" +
+                                            "[isAdmin] = ?     \n" +
+                            "WHERE [ProductID] = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.setString(3, displayname);         
+            statement.setString(4, email);
+            statement.setBoolean(5, isMod);
+            statement.setBoolean(6, isAsmin);
+            statement.setString(7, id);
+
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
     public void deleProduct(String id) {
         try {
             String sql = "DELETE [Product] WHERE ProductID=?";

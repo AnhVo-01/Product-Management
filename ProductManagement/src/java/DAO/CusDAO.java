@@ -33,7 +33,7 @@ public class CusDAO extends BaseDAO<Customers> {
                 cus.add(c);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CusDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cus;
     }
@@ -58,12 +58,44 @@ public class CusDAO extends BaseDAO<Customers> {
                 return a;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CusDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
     
-    public void updateCus(String id, String name, String phone, String address, String city, String country, String zip, String email, String fax) {    
+    public void createCus(String cusid, String name, String phone, String address, 
+            String city, String country, String zip, String email, String fax) {
+        try {
+            String sql = "INSERT INTO [Customers]\n" +
+                                "([CustomerID],  \n" +
+                                "[Name],         \n" +
+                                "[Phone],        \n" +
+                                "[Address],      \n" +
+                                "[City],         \n" +
+                                "[Country],      \n" +
+                                "[ZIPCode],      \n" +
+                                "[Email],      \n" +
+                                "[Fax])          \n" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, cusid);
+            statement.setString(2, name);
+            statement.setString(3, phone);
+            statement.setString(4, address);         
+            statement.setString(5, city);
+            statement.setString(6, country);
+            statement.setString(7, zip);
+            statement.setString(8, email);
+            statement.setString(9, fax);
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CusDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateCus(String id, String name, String phone, String address, 
+            String city, String country, String zip, String email, String fax) {    
         try {
             String sql = "UPDATE [Customers] SET [Name] = ?, \n" +
                                             "[Phone] = ?,  \n" +
@@ -87,7 +119,7 @@ public class CusDAO extends BaseDAO<Customers> {
       
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CusDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

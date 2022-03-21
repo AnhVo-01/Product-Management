@@ -1,6 +1,5 @@
 package controller;
 
-import DAO.AccountDAO;
 import DAO.CusDAO;
 import java.io.IOException;
 import java.util.Random;
@@ -19,7 +18,7 @@ public class UserController extends HttpServlet {
         Random rd = new Random();
         StringBuilder sb = new StringBuilder();
         
-        for (int i=0; i<rd.nextInt(6)+10; i++) {
+        for (int i=0; i<rd.nextInt(6)+7; i++) {
             int temp = rd.nextInt(9);
             sb.append(temp);
         }
@@ -38,16 +37,19 @@ public class UserController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         
-        String id = request.getParameter("sid");
-        String Name = request.getParameter("userN");
-        String Pass = request.getParameter("userP");
-        String Dis = request.getParameter("display");
-        String Email = request.getParameter("email");
+        String CID = request.getParameter("cid");
+        String Name = request.getParameter("cname");
+        String Phone = request.getParameter("cphone");
+        String Addr = request.getParameter("adds");
+        String City = request.getParameter("city");
+        String Country = request.getParameter("country");
+        String ZIP = request.getParameter("zip");
+        String Email = request.getParameter("cmail");
+        String Fax = request.getParameter("cfax");   
 
-        AccountDAO dao = new AccountDAO();  
-        
-        dao.updateAcc(id, Name, Pass, Dis, Email, false, false);
-        request.getSession().setAttribute("user", dao.getAcc(id));
+        CusDAO db = new CusDAO();
+        db.createCus(CID, Name, Phone, Addr, City, Country, ZIP, Email, Fax);
+        request.getSession().setAttribute("cus", db.getCusByID(ZIP));
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 
