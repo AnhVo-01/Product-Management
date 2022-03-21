@@ -28,27 +28,33 @@
                 <div class="details">
                     <div>
                         <h5>ID</h5>
-                        <input type="text" name="" value="680">
+                        <input type="text" name="" value="${PDD.productID}">
                     </div>
                     <div>
                         <h5>Name</h5>
-                        <input type="text" name="" value="HL Road Frame - Black, 58">
+                        <input type="text" name="" value="${PDD.name}">
                     </div>
                     <div>
                         <h5>Color</h5>
-                        <input type="text" name="" value="Black">
+                        <input type="text" name="" value="${PDD.color}">
                     </div>
                     <div>
                         <h5>Price</h5>
-                        <input type="text" name="" value="1431.50">
+                        <input type="text" name="" value="${PDD.price}">
                     </div>
                     <div>
                         <h5>Category</h5>
-                        <input type="text" name="" value="Components">
+                        <input type="text" name="" value="${PDD.subName}">
                     </div>
                     <div>
                         <h5>Model</h5>
-                        <input type="text" name="" value="6">
+                        <input type="text" name="" value="${PDD.modelID}">
+                    </div>
+                    <div>
+                        <h5>Discontinued</h5>
+                        <input style="width: 50px" type="radio" name="Discon" value="true">True
+                        <br>
+                        <input style="width: 50px" type="radio" name="Discon" value="false">False
                     </div>
                 </div>
             </form>

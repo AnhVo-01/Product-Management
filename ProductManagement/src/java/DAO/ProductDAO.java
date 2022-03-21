@@ -40,6 +40,33 @@ public class ProductDAO extends BaseDAO<Product> {
         return acc;
     }
     
+    public Product getPDbyID(String id) {
+        try {
+            String sql = "SELECT p.ProductID, p.Name, p.Color, p.Price, psc.Category, p.ModelID, p.Discontinued\n" +
+                        "FROM [Product] p\n" +
+                        "INNER JOIN [ProductSubcategory] psc\n" +
+                        "ON p.SubcategoryID = psc.SubcategoryID\n" +
+                        "WHERE ProductID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Product p = new Product();
+                p.setProductID(rs.getInt(1));
+                p.setName(rs.getString(2));
+                p.setColor(rs.getString(3));
+                p.setPrice(rs.getDouble(4));
+                p.setSubName(rs.getString(5));
+                p.setModelID(rs.getInt(6));
+                p.setDiscontinued(rs.getBoolean(7));
+                return p;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public int countP() {
         String sql = "SELECT COUNT(*) as totalrow FROM [Product]";
         PreparedStatement statement;

@@ -207,10 +207,10 @@
                                     <td>
                                         <c:choose>
                                             <c:when test="${p.discontinued == true}">
-                                                <span id="edit-Btn" class="status dis"><i class="fa-solid fa-pen"></i></span>
+                                                <span onclick="editBtn('${p.productID}')" class="status dis"><i class="fa-solid fa-pen"></i></span>
                                             </c:when>
                                             <c:otherwise>
-                                                <span id="edit-Btn" class="status sell"><i class="fa-solid fa-pen"></i></span>
+                                                <span onclick="editBtn('${p.productID}')" class="status sell"><i class="fa-solid fa-pen"></i></span>
                                             </c:otherwise>
                                         </c:choose>                                   
                                     </td>
@@ -299,11 +299,8 @@
                 window.location.href = 'ProductDelete?aid='+pid;
             }
         };
-        var btn = document.querySelectorAll("#edit-Btn");
-        for (let i = 0; i<btn.length; i++){
-            btn[i].onclick = function() {
-                window.location.href = 'PDdetails.jsp';
-            };
+        function editBtn(id){
+            window.location.href = 'DetailsServlet?pid='+id;
         }
     </script>
     <script src="js/navController.js"></script>
