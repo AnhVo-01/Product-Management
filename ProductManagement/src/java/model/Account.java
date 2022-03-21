@@ -7,6 +7,7 @@ package model;
 
 public class Account {
     String id;
+    String cusid;
     String username;
     String password;
     String displayname;
@@ -16,8 +17,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, String username, String password, String displayname, String email, Status status) {
+    public Account(String id, String cusid, String username, String password, String displayname, String email, Status status) {
         this.id = id;
+        this.cusid = cusid;
         this.username = username;
         this.password = password;
         this.displayname = displayname;
@@ -31,6 +33,14 @@ public class Account {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCusid() {
+        return cusid;
+    }
+
+    public void setCusid(String cusid) {
+        this.cusid = cusid;
     }
 
     public String getUsername() {

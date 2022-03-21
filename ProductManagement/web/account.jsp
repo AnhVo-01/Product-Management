@@ -151,6 +151,7 @@
                                     </span>
                                 </td>
                                 <td id="inID"><c:out value="${a.id}"/></td>
+                                <td style="display: none;" id="inCID"><c:out value="${a.cusid}"/></td>
                                 <td id="inN"><c:out value="${a.username}"/></td>
                                 <td id="inP"><c:out value="${a.password}"/></td>
                                 <td id="inDP"><c:out value="${a.displayname}"/></td>
@@ -239,6 +240,9 @@
                         <h3>User ID</h3>
                         <input type="text" name="sid" id="outID">
                     </div>
+                    <div style="display: none;">
+                        <input type="text" name="cid" id="outCID">
+                    </div>
                     <div class="options">
                         <h3>User Name</h3>
                         <input type="text" name="userN" id="outN">
@@ -298,23 +302,26 @@
         
         const x = document.querySelectorAll("#inN"),
             xID = document.querySelectorAll("#inID"),
+            xCID = document.querySelectorAll("#inCID"),
             xP = document.querySelectorAll("#inP"),
             xE = document.querySelectorAll("#inE"),
             xA = document.querySelectorAll("#inDP");
             
         const y = document.querySelector("#outN"),
             yID = document.querySelector("#outID"),
+            yCID = document.querySelector("#outCID"),
             yP = document.querySelector("#outP"),
             yE = document.querySelector("#outE"),
             yA = document.querySelector("#outDP");
 
-        const name = [], id = [], pass = [], email = [], dp = [];
+        const name = [], id = [], cid = [], pass = [], email = [], dp = [];
 
         for (let z = 0; z < btn1.length; z++) {
             btn1[z].onclick = () => {
                 for (let i = 0; i < x.length; i++) {
                     name[i] = x[i].textContent;
                     id[i] = xID[i].textContent;
+                    cid[i] = xCID[i].textContent;
                     pass[i] = xP[i].textContent;
                     email[i] = xE[i].textContent;
                     dp[i] = xA[i].textContent;
@@ -324,6 +331,7 @@
 
                 y.value = name[z];
                 yID.value = id[z];
+                yCID.value = cid[z];
                 yP.value = pass[z];
                 yE.value = email[z];
                 yA.value = dp[z];

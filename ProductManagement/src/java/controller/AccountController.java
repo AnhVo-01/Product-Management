@@ -37,6 +37,7 @@ public class AccountController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         
         String id = request.getParameter("sid");
+        String cid = request.getParameter("cid");
         String Name = request.getParameter("userN");
         String Pass = request.getParameter("userP");
         String Dis = request.getParameter("display");
@@ -49,10 +50,13 @@ public class AccountController extends HttpServlet {
         if(Admin == null || Admin.isEmpty()) {
             Admin = "false";
         }
+        if(cid == null || cid.isEmpty()){
+            cid = "NULL";
+        }
 
         AccountDAO dao = new AccountDAO();  
         
-        dao.updateAcc(id, Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));   
+        dao.updateAcc(cid, id, Name, Pass, Dis, Email, Boolean.parseBoolean(Mod), Boolean.parseBoolean(Admin));   
         response.sendRedirect("AccountList");
     }
 

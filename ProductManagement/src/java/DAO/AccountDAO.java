@@ -1,4 +1,4 @@
-package DAO;
+ package DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,7 +40,7 @@ public class AccountDAO extends BaseDAO<Account>{
 
     public Account Login(String username, String password) {
         try {
-            String sql = "SELECT [userID], [userName], [Password], [DisplayName], [isMod], [isAdmin]\n" +
+            String sql = "SELECT [userID],[CustomerID], [userName], [Password], [DisplayName], [Email], [isMod], [isAdmin]\n" +
                          "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -50,9 +50,11 @@ public class AccountDAO extends BaseDAO<Account>{
             if (rs.next()) {
                 Account a = new Account();
                 a.setId(rs.getString("userID"));
+                a.setCusid(rs.getString("CustomerID"));
                 a.setUsername(rs.getString("userName"));
                 a.setPassword(rs.getString("Password"));
                 a.setDisplayname(rs.getString("DisplayName"));
+                a.setEmail(rs.getString("Email"));
                 a.setStatus(new Status(rs.getBoolean("isMod"),rs.getBoolean("isAdmin")));
                 return a;
             }
@@ -109,23 +111,25 @@ public class AccountDAO extends BaseDAO<Account>{
         }
     }
     
-    public void updateAcc(String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
+    public void updateAcc(String cusid, String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
         try {
-            String sql = "UPDATE [Account] SET [userName] = ?, \n" +
-                                            "[Password] = ?,   \n" +
-                                            "[DisplayName] = ?,\n" +
-                                            "[Email] = ?,      \n" +
-                                            "[isMod] = ?,      \n" +
-                                            "[isAdmin] = ?     \n" +
+            String sql = "UPDATE [Account] SET [CustomerID] = ?,\n" +
+                                            "[userName] = ?,    \n" +
+                                            "[Password] = ?,    \n" +
+                                            "[DisplayName] = ?, \n" +
+                                            "[Email] = ?,       \n" +
+                                            "[isMod] = ?,       \n" +
+                                            "[isAdmin] = ?      \n" +
                             "WHERE [userID] = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, username);
-            statement.setString(2, password);
-            statement.setString(3, displayname);         
-            statement.setString(4, email);
-            statement.setBoolean(5, isMod);
-            statement.setBoolean(6, isAsmin);
-            statement.setString(7, id);
+            statement.setString(1, cusid);
+            statement.setString(2, username);
+            statement.setString(3, password);
+            statement.setString(4, displayname);         
+            statement.setString(5, email);
+            statement.setBoolean(6, isMod);
+            statement.setBoolean(7, isAsmin);
+            statement.setString(8, id);
 
             
             statement.executeUpdate();
