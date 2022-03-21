@@ -195,7 +195,7 @@
                                 <tr class="form">
                                     <td <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
                                         <span class="status">
-                                            <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
+                                            <a style="color: #000;" href="#" onclick="warning('${p.productID}')"><i class="fa-solid fa-trash-can remove"></i></a>
                                         </span>
                                     </td>
                                     <td id="inID"><c:out value="${p.productID}"/></td>
@@ -275,48 +275,6 @@
         </div>
     </div>
 
-    <!-- Edit --------------------------------------- -->
-    <div class="Popup" id="myEdit">
-        <div class="Set_page">
-            <span class="close-btn" id="close-set">&times;</span>
-            <div style="padding: 20px 40px 0 40px;">
-                <h1>Edit Account</h1>
-                <hr style="border: 0; height: 1px; background-color: #000; margin: 15px 0;">
-            </div>
-            <div class="Set-pop">
-                <div class="options">
-                    <h3>User ID</h3>
-                    <input type="text" id="outID">
-                </div>
-                <div class="options">
-                    <h3>User Name</h3>
-                    <input type="text" id="outN">
-                </div>
-                <div class="options">
-                    <h3>Password</h3>
-                    <input type="text" id="outP">
-                </div>
-                <div class="options">
-                    <h3>Display Name</h3>
-                    <input type="text" id="outDP">
-                </div>
-                <div class="options">
-                    <h3>Email</h3>
-                    <input type="email" id="outE">
-                </div>
-                <div class="options">
-                    <h3>Status</h3>
-                    <input type="radio"> isMod
-                    <input type="radio"> isAdmin
-                </div>
-            </div>
-
-            <div class="submit-btn">
-                <button class="opt-btn save-btn" type="submit" name="created"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-            </div>    
-        </div>
-    </div>
-
     <script>
         const filter = document.querySelectorAll(".opt-filter"),
             showOpt = document.querySelectorAll(".select"),
@@ -335,6 +293,12 @@
         };
     </script>
     <script>
+        function warning(pid){
+            var option = confirm('Do you want to continue?');
+            if(option === true){
+                window.location.href = 'ProductDelete?aid='+pid;
+            }
+        };
         var btn = document.querySelectorAll("#edit-Btn");
         for (let i = 0; i<btn.length; i++){
             btn[i].onclick = function() {

@@ -91,4 +91,14 @@ public class ProductDAO extends BaseDAO<Product> {
         }
         return product;
     }
+    public void deleProduct(String id) {
+        try {
+            String sql = "DELETE [Product] WHERE ProductID=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

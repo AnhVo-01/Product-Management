@@ -119,7 +119,7 @@
             </div>
 
             <!-- card -->
-            <div class="card-box">
+<!--            <div class="card-box">
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
@@ -156,7 +156,7 @@
                         <i class="far fa-money-bill-alt"></i>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <!-- order details list -->
             <div class="details">
