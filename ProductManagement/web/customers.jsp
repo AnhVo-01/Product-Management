@@ -69,7 +69,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="warehouse.jsp">
                             <i class="fa-solid fa-warehouse fa-lg icon"></i>
                             <span class="text nav-text">Warehouse</span>
                         </a>
