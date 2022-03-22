@@ -25,7 +25,13 @@ public class Product {
         this.modelID = modelID;
         this.discontinued = discontinued;
     }
-
+    
+    public Product(int productID, String name, String color) {
+        this.productID = productID;
+        this.name = name;
+        this.color = color;
+    }
+    
     public int getProductID() {
         return productID;
     }

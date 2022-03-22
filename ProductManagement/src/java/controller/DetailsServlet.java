@@ -2,11 +2,13 @@ package controller;
 
 import DAO.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Product;
+import model.Warehouse;
 
 /**
  *
@@ -19,7 +21,10 @@ public class DetailsServlet extends HttpServlet {
         String id = request.getParameter("pid");
         ProductDAO db = new ProductDAO();
         
+        ArrayList<Warehouse> whlist = db.getLocal(id);    
         Product pd = db.getPDbyID(id);
+        
+        request.setAttribute("PDW", whlist);
         request.setAttribute("PDD", pd);
         request.getRequestDispatcher("PDdetails.jsp").forward(request, response);
     }

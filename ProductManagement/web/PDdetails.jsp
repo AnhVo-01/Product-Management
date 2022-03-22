@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +27,9 @@
                 </div>
                 <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                 <div class="details">
-                    <div style="display: none;">
-                        <input type="text" name="" value="${PDD.productID}">
+                    <div>
+                        <h5>ID</h5>
+                        <input type="text" name="" value="${PDD.productID}" disabled>
                     </div>
                     <div>
                         <h5>Name</h5>
@@ -47,9 +49,9 @@
                     </div>
                     <div>
                         <h5>Discontinued</h5>
-                        <input style="width: 50px" type="radio" name="Discon" value="true">Yes
+                        <input style="width: 50px" type="radio" name="Discon" value="true" <c:if test="${PDD.discontinued}">checked</c:if>>Yes
                         <br>
-                        <input style="width: 50px" type="radio" name="Discon" value="false">No
+                        <input style="width: 50px" type="radio" name="Discon" value="false" <c:if test="${!PDD.discontinued}">checked</c:if>>No
                     </div>
                     <div>
                         <h5>Model</h5>
@@ -89,17 +91,6 @@
                             <td>Oops! Your account does not have enough permissions to use this function.</td>
                             <td>2022-03-20</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span class="status">
-                                    <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
-                                </span>
-                            </td>
-                            <td id="inID">680</td>
-                            <td id="inN">HL Road Frame - Black, 58</td>
-                            <td id="inP">1431.50</td>
-                            <td id="inCa">Components</td>
-                        </tr>
                     </tbody>
                 </table>
             </form>
@@ -117,17 +108,21 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Address</th>
+                            <th>Selled</th>
                             <th>Availability</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>680</td>
-                            <td>HL Road Frame - Black, 58</td>
-                            <td>1431.50</td>
-                            <td>400</td>
-                        </tr>
+                        <c:forEach items="${PDW}" var="w">
+                            <tr>
+                                <td><c:out value="${w.localid}"/></td>
+                                <td><c:out value="${w.name}"/></td>
+                                <td><c:out value="${w.selled}"/></td>
+                                <td><c:out value="${w.avail}"/></td>
+                                <td><c:out value="${w.total}"/></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </form>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product;
+import model.Warehouse;
 
 /**
  *
@@ -153,5 +154,31 @@ public class ProductDAO extends BaseDAO<Product> {
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public ArrayList<Warehouse> getLocal(String id) {
+        ArrayList<Warehouse> wh = new ArrayList<>();
+        try {
+            String sql = "SELECT [ProductID], [Bin], (Quantity - Bin) as Availability, [Quantity], [Warehouse].LocationID, [Name], [Address] \n" +
+                            "FROM [ProductInventory] INNER JOIN [Warehouse]\n" +
+                            "ON [ProductInventory].[LocationID] = [Warehouse].[LocationID]\n" +
+                        "WHERE [ProductID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Warehouse w = new Warehouse();
+                w.setSelled(rs.getInt(2));
+                w.setAvail(rs.getInt(3));
+                w.setTotal(rs.getInt(4));
+                w.setLocalid(rs.getInt(5));
+                w.setName(rs.getString(6));
+                w.setAddr(rs.getString(7));
+                wh.add(w);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return wh;
     }
 }

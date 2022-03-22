@@ -5,9 +5,11 @@
  */
 package controller;
 
+import DAO.OrderDAO;
 import DAO.ProductDAO;
 import java.util.ArrayList;
 import java.util.List;
+import model.Order;
 import model.Product;
 
 /**
@@ -17,10 +19,10 @@ import model.Product;
 public class test {
 
     public static void main(String[] args) {
-        ProductDAO db = new ProductDAO();
-        List<Product> plist = db.getAll();
+        OrderDAO dao = new OrderDAO();
+        ArrayList<Order> ord = dao.getOrderDetals("CPDM10027");
         
-        for (Product a : plist){
+        for (Order a : ord){
             System.out.println(a);
         }
 //        System.out.println(db.getAcc("U34485871054").toString());

@@ -93,7 +93,7 @@
             </div>
             <div class="pd-right">
                 <span class="button">
-                    <a href="userpage.jsp"><i class="fa-solid fa-house icon"></i> Home</a>
+                    <a href="ProfileList"><i class="fa-solid fa-house icon"></i> Home</a>
                 </span>
             </div>
         </div>
