@@ -1,13 +1,16 @@
 package controller;
 
 import DAO.CusDAO;
+import DAO.OrderDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Account;
 import model.Customers;
+import model.Order;
 
 /**
  *
@@ -23,6 +26,11 @@ public class ProfileList extends HttpServlet {
         CusDAO db = new CusDAO();
         Customers cs = db.getCusByID(acc.getId());
         request.getSession().setAttribute("cus", cs);
+        
+        OrderDAO dao = new OrderDAO();
+        ArrayList<Order> ord = dao.getOrderDetals(acc.getCusid());
+        request.setAttribute("orderList", ord);
+        
         request.getRequestDispatcher("userpage.jsp").forward(request, response);
     }
 

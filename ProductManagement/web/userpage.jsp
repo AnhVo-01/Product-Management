@@ -1,5 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,13 +101,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Star Refrigerator <br><small style="color: #1795ce;">Color: red</small></td>
-                                <td>1</td>
-                                <td>$1200</td>
-                                <td>DMS</td>
-                                <td><span class="status-delivered">Delivered</span></td>
-                            </tr>                      
+                            <c:forEach items="${orderList}" var="o" varStatus="loop">
+                                <tr>
+                                    <td>
+                                        <c:out value="${o.product.name}"/> <br>
+                                        <small style="color: #1795ce;">Color: <c:out value="${o.product.color}"/></small>
+                                    </td>
+                                    <td><c:out value="${o.quantity}"/></td>
+                                    <td>$<c:out value="${o.totalprice}"/></td>
+                                    <td><c:out value="${o.shipper}"/></td>
+                                    <td><span class="status-delivered">Delivered</span></td>
+                                </tr>  
+                            </c:forEach>   
                         </tbody>
                     </table>
                 </div>

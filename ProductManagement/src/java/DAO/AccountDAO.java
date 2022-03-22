@@ -40,7 +40,7 @@ public class AccountDAO extends BaseDAO<Account>{
 
     public Account Login(String username, String password) {
         try {
-            String sql = "SELECT [userID],[CustomerID], [userName], [Password], [DisplayName], [Email], [isMod], [isAdmin]\n" +
+            String sql = "SELECT [userID], [CustomerID], [userName], [Password], [DisplayName], [Email], [isMod], [isAdmin]\n" +
                          "FROM [Account]\n" + 
                          "WHERE [Username] = ? AND [Password] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
