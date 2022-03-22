@@ -73,6 +73,7 @@ public class AccountDAO extends BaseDAO<Account>{
             if (rs.next()) {
                 Account a = new Account();
                 a.setId(rs.getString(1));
+                a.setCusid(rs.getString(2));
                 a.setUsername(rs.getString(3));
                 a.setPassword(rs.getString(4));
                 a.setDisplayname(rs.getString(5));
@@ -111,10 +112,9 @@ public class AccountDAO extends BaseDAO<Account>{
         }
     }
     
-    public void updateAcc(String cusid, String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
+    public void updateAcc(String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
         try {
-            String sql = "UPDATE [Account] SET [CustomerID] = ?,\n" +
-                                            "[userName] = ?,    \n" +
+            String sql = "UPDATE [Account] SET [userName] = ?,  \n" +
                                             "[Password] = ?,    \n" +
                                             "[DisplayName] = ?, \n" +
                                             "[Email] = ?,       \n" +
@@ -122,14 +122,13 @@ public class AccountDAO extends BaseDAO<Account>{
                                             "[isAdmin] = ?      \n" +
                             "WHERE [userID] = ?;";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, cusid);
-            statement.setString(2, username);
-            statement.setString(3, password);
-            statement.setString(4, displayname);         
-            statement.setString(5, email);
-            statement.setBoolean(6, isMod);
-            statement.setBoolean(7, isAsmin);
-            statement.setString(8, id);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            statement.setString(3, displayname);         
+            statement.setString(4, email);
+            statement.setBoolean(5, isMod);
+            statement.setBoolean(6, isAsmin);
+            statement.setString(7, id);
 
             
             statement.executeUpdate();

@@ -18,7 +18,7 @@ public class UserController extends HttpServlet {
         Random rd = new Random();
         StringBuilder sb = new StringBuilder();
         
-        for (int i=0; i<rd.nextInt(6)+7; i++) {
+        for (int i=0; i<rd.nextInt(6)+6; i++) {
             int temp = rd.nextInt(9);
             sb.append(temp);
         }
@@ -36,8 +36,9 @@ public class UserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        CusDAO db = new CusDAO();
         
-        String CID = request.getParameter("cid");
+        String ID = request.getParameter("id");
         String Name = request.getParameter("cname");
         String Phone = request.getParameter("cphone");
         String Addr = request.getParameter("adds");
@@ -47,9 +48,8 @@ public class UserController extends HttpServlet {
         String Email = request.getParameter("cmail");
         String Fax = request.getParameter("cfax");   
 
-        CusDAO db = new CusDAO();
-        db.createCus(CID, Name, Phone, Addr, City, Country, ZIP, Email, Fax);
-        request.getSession().setAttribute("cus", db.getCusByID(ZIP));
+        db.creCuswAcc(ID, "CPDM"+ID(), Name, Phone, Addr, City, Country, ZIP, Email, Fax);
+        request.getSession().setAttribute("cus", db.getCusByID(ID));
         request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 
@@ -59,7 +59,8 @@ public class UserController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         CusDAO dao = new CusDAO(); 
         
-        String ID = request.getParameter("cid");
+        String ID = request.getParameter("id");
+        String CID = request.getParameter("cid");
         String Name = request.getParameter("cname");
         String Phone = request.getParameter("cphone");
         String add = request.getParameter("adds");
@@ -69,8 +70,9 @@ public class UserController extends HttpServlet {
         String Email = request.getParameter("cmail");
         String Fax = request.getParameter("cfax");
         
-        dao.updateCus(ID, Name, Phone, add, City, Country, ZIP, Email, Fax);
-        response.sendRedirect("ProfileList");
+        dao.updateCus(CID, Name, Phone, add, City, Country, ZIP, Email, Fax);
+        request.getSession().setAttribute("cus", dao.getCusByID(ID));
+        request.getRequestDispatcher("userprofile.jsp").forward(request, response);
     }
 
     /**

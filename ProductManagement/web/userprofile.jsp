@@ -115,7 +115,7 @@
             <div class="post-col">
                 <form action="UserController"
                     <c:choose>
-                        <c:when test="${not empty sessionScope.cus.name}">
+                        <c:when test="${not empty sessionScope.cus.cusid}">
                             method="POST"
                         </c:when>
                         <c:otherwise>
@@ -130,7 +130,10 @@
                         <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
                         <div class="post-input-container">
                             <div style="display: none;">
-                                <input type="text" name="cid" value="${sessionScope.user.cusid}">
+                                <input type="text" name="id" value="${sessionScope.user.id}">
+                            </div>
+                            <div style="display: none;">
+                                <input type="text" name="cid" value="${sessionScope.cus.cusid}">
                             </div>
                             <div>
                                 <h5>Name</h5>

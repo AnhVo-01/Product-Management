@@ -63,6 +63,41 @@ public class CusDAO extends BaseDAO<Customers> {
         return null;
     }
     
+    public void creCuswAcc(String id, String cusid, String name, String phone, String address, 
+            String city, String country, String zip, String email, String fax){
+        try {
+            String sql = "INSERT INTO [Customers]\n" +
+                                "([CustomerID],  \n" +
+                                "[Name],         \n" +
+                                "[Phone],        \n" +
+                                "[Address],      \n" +
+                                "[City],         \n" +
+                                "[Country],      \n" +
+                                "[ZIPCode],      \n" +
+                                "[Email],        \n" +
+                                "[Fax])          \n" +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)\n"+
+                        "UPDATE [Account] SET [CustomerID] = ?\n" +
+                        "WHERE [userID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, cusid);
+            statement.setString(2, name);
+            statement.setString(3, phone);
+            statement.setString(4, address);         
+            statement.setString(5, city);
+            statement.setString(6, country);
+            statement.setString(7, zip);
+            statement.setString(8, email);
+            statement.setString(9, fax);
+            statement.setString(10, cusid);
+            statement.setString(11, id);
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CusDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void createCus(String cusid, String name, String phone, String address, 
             String city, String country, String zip, String email, String fax) {
         try {
