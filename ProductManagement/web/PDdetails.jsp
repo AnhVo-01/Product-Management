@@ -20,7 +20,7 @@
     </div>
     <div class="container">
         <div class="product">
-            <form action="">
+            <form action="DetailsController" method="GET">
                 <div class="profile">
                     <h2>Details</h2>
                     <button class="button" type="submit"><i class="fa-regular fa-floppy-disk icon"></i> Save</button>
@@ -29,33 +29,33 @@
                 <div class="details">
                     <div>
                         <h5>ID</h5>
-                        <input type="text" name="" value="${PDD.productID}" disabled>
+                        <input type="text" name="pid" value="${PDD.productID}" disabled>
                     </div>
                     <div>
                         <h5>Name</h5>
-                        <input type="text" name="" value="${PDD.name}">
+                        <input type="text" name="pname" value="${PDD.name}">
                     </div>
                     <div>
                         <h5>Color</h5>
-                        <input type="text" name="" value="${PDD.color}">
+                        <input type="text" name="pcolor" value="${PDD.color}">
                     </div>
                     <div>
                         <h5>Price</h5>
-                        <input type="text" name="" value="${PDD.price}">
+                        <input type="text" name="price" value="${PDD.price}">
                     </div>
                     <div>
                         <h5>Category</h5>
-                        <input type="text" name="" value="${PDD.subName}">
+                        <input type="text" name="subcate" value="${PDD.subID}">
                     </div>
                     <div>
                         <h5>Discontinued</h5>
-                        <input style="width: 50px" type="radio" name="Discon" value="true" <c:if test="${PDD.discontinued}">checked</c:if>>Yes
+                        <input style="width: 50px" type="radio" name="Discon" value="Y" <c:if test="${PDD.discontinued}">checked</c:if>>Yes
                         <br>
-                        <input style="width: 50px" type="radio" name="Discon" value="false" <c:if test="${!PDD.discontinued}">checked</c:if>>No
+                        <input style="width: 50px" type="radio" name="Discon" value="N" <c:if test="${!PDD.discontinued}">checked</c:if>>No
                     </div>
                     <div>
                         <h5>Model</h5>
-                        <input type="text" name="" value="${PDD.modelID}">
+                        <input type="text" name="modelID" value="${PDD.modelID}">
                     </div>
                 </div>
             </form>

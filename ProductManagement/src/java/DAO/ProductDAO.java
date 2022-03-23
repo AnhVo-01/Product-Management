@@ -43,7 +43,7 @@ public class ProductDAO extends BaseDAO<Product> {
     
     public Product getPDbyID(String id) {
         try {
-            String sql = "SELECT p.ProductID, p.Name, p.Color, p.Price, psc.Category, p.ModelID, p.Discontinued\n" +
+            String sql = "SELECT p.ProductID, p.Name, p.Color, p.Price, p.SubcategoryID, psc.Category, p.ModelID, p.Discontinued\n" +
                         "FROM [Product] p\n" +
                         "INNER JOIN [ProductSubcategory] psc\n" +
                         "ON p.SubcategoryID = psc.SubcategoryID\n" +
@@ -57,9 +57,10 @@ public class ProductDAO extends BaseDAO<Product> {
                 p.setName(rs.getString(2));
                 p.setColor(rs.getString(3));
                 p.setPrice(rs.getDouble(4));
-                p.setSubName(rs.getString(5));
-                p.setModelID(rs.getInt(6));
-                p.setDiscontinued(rs.getBoolean(7));
+                p.setSubID(rs.getInt(5));
+                p.setSubName(rs.getString(6));
+                p.setModelID(rs.getInt(7));
+                p.setDiscontinued(rs.getBoolean(8));
                 return p;
             }
         } catch (SQLException ex) {
@@ -120,46 +121,45 @@ public class ProductDAO extends BaseDAO<Product> {
         return product;
     }
      
-    public void updateAcc(String id, String username, String password, String displayname, String email, boolean isMod, boolean isAsmin) {    
+    public void updateProduct(String id, String name, String color, double price, int SubID, int ModelID, boolean discontinued) {    
         try {
-            String sql = "UPDATE [Account] SET [userName] = ?, \n" +
-                                            "[Password] = ?,   \n" +
-                                            "[DisplayName] = ?,\n" +
-                                            "[Email] = ?,      \n" +
-                                            "[isMod] = ?,      \n" +
-                                            "[isAdmin] = ?     \n" +
-                            "WHERE [ProductID] = ?;";
+            String sql = "UPDATE [Product] SET [Name] = ?, \n" +
+                                            "[Color] = ?,   \n" +
+                                            "[Price] = ?,\n" +
+                                            "[SubcategoryID] = ?,      \n" +
+                                            "[ModelID] = ?,      \n" +
+                                            "[Discontinued] = ?     \n" +
+                            "WHERE [ProductID] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, username);
-            statement.setString(2, password);
-            statement.setString(3, displayname);         
-            statement.setString(4, email);
-            statement.setBoolean(5, isMod);
-            statement.setBoolean(6, isAsmin);
+            statement.setString(1, name);
+            statement.setString(2, color);
+            statement.setDouble(3, price);         
+            statement.setInt(4, SubID);
+            statement.setInt(5, ModelID);
+            statement.setBoolean(6, discontinued);
             statement.setString(7, id);
-
             
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
      
     public void deleProduct(String id) {
         try {
-            String sql = "DELETE [Product] WHERE ProductID=?";
+            String sql = "DELETE [Product] WHERE ProductID = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, id);
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public ArrayList<Warehouse> getLocal(String id) {
         ArrayList<Warehouse> wh = new ArrayList<>();
         try {
-            String sql = "SELECT [ProductID], [Bin], (Quantity - Bin) as Availability, [Quantity], [Warehouse].LocationID, [Name], [Address] \n" +
+            String sql = "SELECT [ProductID], [Sell], (Quantity - Sell) as Availability, [Quantity], [Warehouse].LocationID, [Name], [Address] \n" +
                             "FROM [ProductInventory] INNER JOIN [Warehouse]\n" +
                             "ON [ProductInventory].[LocationID] = [Warehouse].[LocationID]\n" +
                         "WHERE [ProductID] = ?";

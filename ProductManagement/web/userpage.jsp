@@ -110,7 +110,16 @@
                                     <td><c:out value="${o.quantity}"/></td>
                                     <td>$<c:out value="${o.totalprice}"/></td>
                                     <td><c:out value="${o.shipper}"/></td>
-                                    <td><span class="status-delivered">Delivered</span></td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${not empty o.shipDate}">
+                                                <span class="status-delivered">Delivered</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="status-inprogress">In process</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </td>
                                 </tr>  
                             </c:forEach>   
                         </tbody>

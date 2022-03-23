@@ -10,18 +10,20 @@ public class Product {
     String color;
     double price;
     String subName;
+    int subID;
     int modelID;
     boolean discontinued;
 
     public Product() {
     }
 
-    public Product(int productID, String name, String color, double price, String subName, int modelID, boolean discontinued) {
+    public Product(int productID, String name, String color, double price, String subName, int subID, int modelID, boolean discontinued) {
         this.productID = productID;
         this.name = name;
         this.color = color;
         this.price = price;
         this.subName = subName;
+        this.subID = subID;
         this.modelID = modelID;
         this.discontinued = discontinued;
     }
@@ -72,6 +74,14 @@ public class Product {
         this.subName = subName;
     }
 
+    public int getSubID() {
+        return subID;
+    }
+
+    public void setSubID(int subID) {
+        this.subID = subID;
+    }
+    
     public int getModelID() {
         return modelID;
     }

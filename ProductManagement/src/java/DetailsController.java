@@ -1,7 +1,6 @@
-package controller;
-
 import DAO.ProductDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,40 +10,39 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AnhVo-PC
  */
-public class ProductDelete extends HttpServlet {
-
+public class DetailsController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("pid");
-
-        ProductDAO dao = new ProductDAO();
-        dao.deleProduct(id);
-        response.sendRedirect("ProductList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        
+        String id = request.getParameter("pid");
+        String Name = request.getParameter("pname");
+        String Color = request.getParameter("pcolor");
+        String Price = request.getParameter("price");
+        String sub = request.getParameter("subcate");
+        String modelID = request.getParameter("modelID");
+        String disc = request.getParameter("Discon");
+        switch(disc){
+            case "Y" :
+                disc = "true";
+                break;
+            case "N" :
+                disc = "false";
+                break;
+        }
+        ProductDAO dao = new ProductDAO();  
+        
+        dao.updateProduct(id, Name, Color, Double.parseDouble(Price), Integer.parseInt(sub), Integer.parseInt(modelID), Boolean.parseBoolean(disc));   
+        response.sendRedirect("DetailsServlet");
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

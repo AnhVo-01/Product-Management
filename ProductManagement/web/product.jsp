@@ -124,6 +124,9 @@
                     <div class="status status-header">
                         <span class="status sell">Are Selling</span>
                         <span class="status dis">Discontinued</span>
+                        <span class="status status_add" <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
+                            <i class="fa-solid fa-circle-plus add_more"></i>
+                        </span>
                     </div>
                 </div>
                 <hr style="border: 0; height: 1px; background-color: #000;">
@@ -131,9 +134,6 @@
                     <table id="myTable">
                         <thead>
                             <tr>
-                                <td <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
-                                    <span class="status status_add"><i class="fa-solid fa-circle-plus add_more"></i></span>
-                                </td>
                                 <td>
                                     ProductID <i style="cursor: pointer;" class="fa-solid fa-angles-down opt-filter"></i>
                                     <select name="oid" class="select">
@@ -193,11 +193,6 @@
                         <tbody>
                             <c:forEach items="${sessionScope.PList}" var="p" varStatus="loop">
                                 <tr class="form">
-                                    <td <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
-                                        <span class="status">
-                                            <a style="color: #000;" href="#" onclick="warning('${p.productID}')"><i class="fa-solid fa-trash-can remove"></i></a>
-                                        </span>
-                                    </td>
                                     <td id="inID"><c:out value="${p.productID}"/></td>
                                     <td id="inN"><c:out value="${p.name}"/></td>
                                     <td id="inCo"><c:out value="${p.color}"/></td>
@@ -207,9 +202,15 @@
                                     <td>
                                         <c:choose>
                                             <c:when test="${p.discontinued == true}">
+                                                <span class="status" <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
+                                                    <a style="color: #000;" href="#" onclick="warning('${p.productID}')"><i class="fa-solid fa-trash-can remove"></i></a>
+                                                </span>
                                                 <span onclick="editBtn('${p.productID}')" class="status dis"><i class="fa-solid fa-pen"></i></span>
                                             </c:when>
                                             <c:otherwise>
+                                                <span class="status" <c:if test="${sessionScope.user.status.isAdmin == false}">style="display: none;"</c:if>>
+                                                    <a style="color: #000;" href="#" onclick="warning('${p.productID}')"><i class="fa-solid fa-trash-can remove"></i></a>
+                                                </span>
                                                 <span onclick="editBtn('${p.productID}')" class="status sell"><i class="fa-solid fa-pen"></i></span>
                                             </c:otherwise>
                                         </c:choose>                                   

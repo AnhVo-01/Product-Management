@@ -60,6 +60,10 @@
         <servlet-name>AccountOfUser</servlet-name>
         <servlet-class>controller.AccountOfUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailsController</servlet-name>
+        <servlet-class>DetailsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>AccountOfUser</servlet-name>
         <url-pattern>/userAcc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailsController</servlet-name>
+        <url-pattern>/DetailsController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
