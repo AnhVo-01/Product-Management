@@ -29,7 +29,7 @@ public class ProfileList extends HttpServlet {
         
         OrderDAO dao = new OrderDAO();
         ArrayList<Order> ord = dao.getOrderDetals(acc.getCusid());
-        request.setAttribute("orderList", ord);
+        request.getSession().setAttribute("orderList", ord);
         
         request.getRequestDispatcher("userpage.jsp").forward(request, response);
     }

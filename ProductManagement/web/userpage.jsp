@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +88,7 @@
                 <div class="card-box recent-orders">
                     <div class="card-header">
                         <h2><i class="fa-solid fa-cart-shopping"></i> My Order</h2>
-                        <a href="#" class="btn">View Details</a>
+                        <a href="orderdetails.jsp" class="btn">View Details</a>
                     </div>
                     <hr style="border: 0; height: 1px; background-color: #000;">
                     <table>
@@ -101,14 +102,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${orderList}" var="o" varStatus="loop">
+                            <c:forEach items="${sessionScope.orderList}" var="o" varStatus="loop">
                                 <tr>
                                     <td>
                                         <c:out value="${o.product.name}"/> <br>
                                         <small style="color: #1795ce;">Color: <c:out value="${o.product.color}"/></small>
                                     </td>
                                     <td><c:out value="${o.quantity}"/></td>
-                                    <td>$<c:out value="${o.totalprice}"/></td>
+                                    <td>$<fmt:formatNumber type="number" maxFractionDigits="2" value="${o.totalprice}"/></td>
                                     <td><c:out value="${o.shipper}"/></td>
                                     <td>
                                         <c:choose>
