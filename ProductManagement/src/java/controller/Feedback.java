@@ -1,10 +1,13 @@
 package controller;
 
+import DAO.ProductDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Product;
 
 /**
  *
@@ -28,8 +31,18 @@ public class Feedback extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        
+        String CID = request.getParameter("cusID");
         String PID = request.getParameter("pID");
         String feedback = request.getParameter("userfb");
+        
+        ProductDAO db = new ProductDAO();
+        db.giveFB(CID, Integer.parseInt(PID), feedback);
+        request.setAttribute("Feedb", db.getPBbyPID(PID));
+        
+//        response.sendRedirect("orderdetails.jsp");
+        request.getRequestDispatcher("orderdetails.jsp").forward(request,response);
     }
 
     /**

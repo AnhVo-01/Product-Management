@@ -13,6 +13,7 @@ public class Product {
     int subID;
     int modelID;
     boolean discontinued;
+    Feedback feedback;
 
     public Product() {
     }
@@ -96,6 +97,14 @@ public class Product {
 
     public void setDiscontinued(boolean discontinued) {
         this.discontinued = discontinued;
+    }
+
+    public Feedback getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(Feedback feedback) {
+        this.feedback = feedback;
     }
     
 }

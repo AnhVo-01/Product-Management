@@ -58,7 +58,9 @@
                                 <small style="color: #bbb; font-style: italic;"></small>
                             </h4>
                             <div class="card-feedback">
-                                <textarea name="userfb" id="fb-area" onkeyup="req()"></textarea>
+                                <textarea name="userfb" id="fb-area" onkeyup="req()">
+                                    <c:if test="${not empty Feedb}">${Feedb.feedback.message}</c:if>
+                                </textarea>
                                 <div class="num-count">
                                     <button type="submit" class="status post">Post</button>
                                     <span id="left">1000</span>

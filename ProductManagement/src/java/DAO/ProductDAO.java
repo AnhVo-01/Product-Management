@@ -1,11 +1,13 @@
 package DAO;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Feedback;
 import model.Product;
 import model.Warehouse;
 
@@ -64,7 +66,7 @@ public class ProductDAO extends BaseDAO<Product> {
                 return p;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -180,5 +182,42 @@ public class ProductDAO extends BaseDAO<Product> {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return wh;
+    }
+    
+    public void giveFB(String cusid, int productid, String mess) {    
+        try {
+            String sql = "INSERT INTO [FeedbackProduct] \n" +
+                                        "([CustomerID], \n" +
+                                        "[ProductID],   \n" +
+                                        "[Message],     \n" +
+                                        "[Date])        \n" +
+                            "VALUES (?, ?, ?, GETDATE())";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, cusid);
+            statement.setInt(2, productid);
+            statement.setString(3, mess);
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Product getPBbyPID(String ProductID) {
+        try {
+            String sql = "SELECT * FROM [FeedbackProduct] WHERE [ProductID] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, ProductID);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Product p = new Product();
+                p.setProductID(rs.getInt(3));
+                p.setFeedback(new Feedback(rs.getInt(1), rs.getString(4), rs.getDate(5)));
+                return p;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }
