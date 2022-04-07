@@ -27,8 +27,8 @@
                 <h2><i class="fa-solid fa-cart-shopping"></i> My Order</h2>
             </div>
             <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
-            <form action="Feedback" method="POST">
-                <c:forEach items="${sessionScope.orderList}" var="o" varStatus="loop">
+            <c:forEach items="${sessionScope.orderList}" var="o" varStatus="loop">
+                <form action="Feedback" method="POST">
                     <div class="recent-order">
                         <input style="display: none;" type="text" name="pID" value="${o.product.productID}">
                         <div class="card-name">
@@ -52,28 +52,26 @@
                         <div>
                             <h4>Quantity: <c:out value="${o.quantity}"/></h4>
                         </div>
-                        <div class="card-feedback">
+                        <div>
                             <h4 id="feedback">Feedback</h4>
-                            <textarea name="userfb" id="fb-area"></textarea>
-                            <button type="submit" class="status post">Post</button>
+                            <div class="card-feedback">
+                                <textarea name="userfb" id="fb-area" onkeyup="req()"></textarea>
+                                <div class="num-count">
+                                    <button type="submit" class="status post">Post</button>
+                                    <span id="left">1000</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr style="border: 0; height: 1px; background: #ccc; margin: 10px 0;">
-                </c:forEach>
-            </form>
+                </form>
+            </c:forEach>
         </div>
     </div>
-
+    
     <div class="footer">
         <i class="far fa-copyright"> This page was created by Anh Vo - 2022</i>
     </div>
-    <script>
-        const postBtn = document.querySelector(".post");
-            
-        postBtn.onclick = () => {
-            document.getElementById("fb-area").disabled = true;
-            postBtn.style.display = "none";
-        };
-    </script>
+    <script src="js/orderD.js"></script>
 </body>
 </html>

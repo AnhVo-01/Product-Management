@@ -118,25 +118,34 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.card-feedback{
-    width: 500px;
-}
-.card-name{
-    width: 300px
-}
 #feedback{
     position: relative;
-    top: 25px;
     left: 10px;
 }
-.card-feedback .post{
-    position: relative;
-    left: 437px;
-    bottom: 28px;
+.card-feedback{
+    display: flex;
+}
+.card-feedback textarea{
+    background: #f2f2f2;
+    width: 500px;
+    height: 100px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+}
+.num-count{
+    display: grid;
+    margin-left: 10px;
+    justify-items: center;
+    align-items: end;
+}
+.num-count .post{
     padding: 2px 5px;
+    height: 70px;
     background: #1876f2;
     color: #fff;
-    border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
     border: 0;
@@ -145,13 +154,10 @@ body{
 .post:hover{
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
 }
-.card-feedback textarea{
-    background: #f2f2f2;
-    width: 480px;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    padding: 30px 10px;
+.num-count span{
+    padding-top: 10px;
+    font-weight: 500;
+    color: #f00;
 }
 .status{
     padding: 2px 4px;
@@ -161,10 +167,6 @@ body{
 }
 .delivered{
     background: #8de02c;
-    color: #fff;
-}
-.inprogress{
-    background: #1795ce;
     color: #fff;
 }
 .main{
