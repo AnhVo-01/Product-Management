@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +62,16 @@
             </form>
         </div>
 
+        <sql:setDataSource var="db" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"  
+                url="jdbc:sqlserver://localhost:1433;databaseName=PDM"  
+                user="sa"  password="123456"/>
+        <sql:query dataSource="${db}" var="rs">  
+            SELECT ProductID, Name, Email, [Message], [Date]
+            FROM [FeedbackProduct] fp
+            INNER JOIN [Customers] c
+            ON c.CustomerID = fp.CustomerID
+            WHERE ProductID = ${PDD.productID}
+        </sql:query> 
         <div class="feedback">
             <form action="">
                 <div class="profile">
@@ -78,19 +89,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <span class="status">
-                                    <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
-                                </span>
-                            </td>
-                            <td>680</td>
-                            <td>Kieu Thi Hong Nhung <br>
-                                <small>kieunhung09@gmail.com</small>
-                            </td>
-                            <td>Oops! Your account does not have enough permissions to use this function.</td>
-                            <td>2022-03-20</td>
-                        </tr>
+                        <c:forEach var="rsl" items="${rs.rows}">                   
+                            <tr>
+                                <td>
+                                    <span class="status">
+                                        <a style="color: #000;" href="#"><i class="fa-solid fa-trash-can remove"></i></a>
+                                    </span>
+                                </td>
+                                <td><c:out value="${rsl.ProductID}"/></td>
+                                <td><c:out value="${rsl.Name}"/> <br>
+                                    <small><c:out value="${rsl.Email}"/></small>
+                                </td>
+                                <td><c:out value="${rsl.Message}"/></td>
+                                <td><c:out value="${rsl.Date}"/></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </form>
