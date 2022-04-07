@@ -31,6 +31,7 @@
                 <form action="Feedback" method="POST">
                     <div class="recent-order">
                         <input style="display: none;" type="text" name="pID" value="${o.product.productID}">
+                        <input style="display: none;" type="text" name="cusID" value="${sessionScope.cus.cusid}">
                         <div class="card-name">
                             <h4><c:out value="${o.product.name}"/><br>
                                 <small style="color: #bbb;">Color: <c:out value="${o.product.color}"/></small>
@@ -53,7 +54,9 @@
                             <h4>Quantity: <c:out value="${o.quantity}"/></h4>
                         </div>
                         <div>
-                            <h4 id="feedback">Feedback</h4>
+                            <h4 id="feedback">Feedback -
+                                <small style="color: #bbb; font-style: italic;"></small>
+                            </h4>
                             <div class="card-feedback">
                                 <textarea name="userfb" id="fb-area" onkeyup="req()"></textarea>
                                 <div class="num-count">
