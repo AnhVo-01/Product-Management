@@ -15,9 +15,3 @@ function req(){
     num.innerHTML = "0";
     return true;
 };
-            
-postBtn.onclick = () => {
-    messArea.disabled = true;
-    postBtn.style.display = "none";
-    num.style.display = "none";
-};
