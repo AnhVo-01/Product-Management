@@ -75,7 +75,7 @@ GO
 CREATE TABLE [Warehouse](
 	[LocationID] [smallint] NOT NULL primary key,
 	[Name] nvarchar(200) NOT NULL,
-	[Address] nvarchar(200) NOT NULL,
+	[Address] nvarchar(200) NOT NULL
 )
 GO
 
