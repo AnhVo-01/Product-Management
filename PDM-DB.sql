@@ -2020,7 +2020,7 @@ CREATE TABLE [Feedback](
 	[FeebackID] [int] NOT NULL primary key,
 	[AccountID] varchar(16) NULL references Account(userID),
 	[Message] nvarchar(2000) NULL,
-	[Date] [datetime] NOT NULL,
+	[Date] [datetime] NOT NULL
 )
 GO
 
@@ -2029,7 +2029,7 @@ CREATE TABLE [FeedbackProduct](
 	[CustomerID] varchar(16) NULL references Customers(CustomerID),
 	[ProductID] [int] NULL references Product(ProductID),
 	[Message] nvarchar(2000) NULL,
-	[Date] [datetime] NOT NULL,
+	[Date] [datetime] NOT NULL
 )
 
 /****** Object:  Table [dbo].[Tracking] ******/
@@ -2048,7 +2048,7 @@ CREATE TABLE [dbo].[Tracking](
 	[Website] VARCHAR (200) NULL,
 	[Facebook] VARCHAR (200) NULL,
 	[Logo] VARCHAR (50) NULL,
-	[Picture] VARCHAR (50) NULL
+	[Picture] VARCHAR (50) NULL,
  CONSTRAINT [PK_Tracking] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
